@@ -1,7 +1,9 @@
 import json
 import os
+import urllib.parse
 import urllib.request
 
+REPO = os.environ["GITHUB_REPOSITORY"]
 UPSTREAM = "Wumpus-Central/discrapper-canary"
 OLD = os.environ["OLD"]
 NEW = os.environ["NEW"]
@@ -10,12 +12,12 @@ TOKEN = os.environ["GH_TOKEN"]
 STRINGS_PATH = os.environ.get("STRINGS_PATH", "").strip()
 
 
-def gh(url):
+def gh(url, accept="application/vnd.github+json"):
     req = urllib.request.Request(
         url,
         headers={
             "Authorization": f"Bearer {TOKEN}",
-            "Accept": "application/vnd.github+json",
+            "Accept": accept,
             "User-Agent": "discrapper-sync",
         },
     )
@@ -49,18 +51,20 @@ def send_block(title, lines):
 
 
 def load_strings(sha):
-    url = f"https://raw.githubusercontent.com/{UPSTREAM}/{sha}/{STRINGS_PATH}"
+    path = urllib.parse.quote(STRINGS_PATH)
+    url = f"https://api.github.com/repos/{REPO}/contents/{path}?ref={sha}"
     try:
-        with urllib.request.urlopen(url) as r:
-            return json.load(r)
-    except Exception:
+        return gh(url, accept="application/vnd.github.raw+json")
+    except Exception as e:
+        print(f"Could not load strings at {sha[:7]}: {e}")
         return {}
 
-cmp = gh(f"https://api.github.com/repos/{UPSTREAM}/compare/{OLD}...{NEW}")
+
+cmp = gh(f"https://api.github.com/repos/{REPO}/compare/{OLD}...{NEW}")
 files = cmp.get("files", [])
 summary = [
     f"**discrapper-canary** `{OLD[:7]}` → `{NEW[:7]}` ({len(files)} files)",
-    cmp.get("html_url", ""),
+    f"https://github.com/{UPSTREAM}/commits/main",
 ]
 post("\n".join(summary))
 
