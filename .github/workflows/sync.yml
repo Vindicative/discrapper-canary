@@ -1,0 +1,40 @@
+name: Sync upstream and notify
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync main with upstream
+        id: sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OLD=$(gh api repos/$GITHUB_REPOSITORY/branches/main --jq .commit.sha)
+          gh api repos/$GITHUB_REPOSITORY/merge-upstream -f branch=main > /dev/null
+          NEW=$(gh api repos/$GITHUB_REPOSITORY/branches/main --jq .commit.sha)
+          echo "old=$OLD" >> "$GITHUB_OUTPUT"
+          echo "new=$NEW" >> "$GITHUB_OUTPUT"
+
+      - name: Notify Discord
+        if: steps.sync.outputs.old != steps.sync.outputs.new
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          OLD: ${{ steps.sync.outputs.old }}
+          NEW: ${{ steps.sync.outputs.new }}
+          STRINGS_PATH: ${{ vars.STRINGS_PATH }}
+        run: python3 notify.py
