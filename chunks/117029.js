@@ -1,8 +1,8 @@
 var l = n(477900),
     i = n(582128),
     r = n(503698),
-    s = n.n(r),
-    a = n(435558),
+    a = n.n(r),
+    s = n(435558),
     o = n(451988),
     u = n(939249),
     c = n(866665),
@@ -56,7 +56,7 @@ let I = i.memo(function (e) {
             let e = 120 * Math.min(P, 32 / 9);
             return { "--custom-zoom-minimap-width": `${e}px`, "--custom-zoom-minimap-height": "120px" };
         }, [P]),
-        X = i.useCallback(
+        Z = i.useCallback(
             (e) => {
                 if (null == W.current || null == G.current) return;
                 let t = W.current.getBoundingClientRect(),
@@ -68,17 +68,17 @@ let I = i.memo(function (e) {
             },
             [H, N, G, F],
         ),
-        Z = i.useCallback(
+        X = i.useCallback(
             (e) => {
-                S(e) && (e.preventDefault(), e.stopPropagation(), z(!0), X({ x: e.clientX, y: e.clientY }));
+                S(e) && (e.preventDefault(), e.stopPropagation(), z(!0), Z({ x: e.clientX, y: e.clientY }));
             },
-            [X],
+            [Z],
         ),
         Q = i.useCallback(
             (e) => {
-                U && (e.preventDefault(), e.stopPropagation(), X({ x: e.clientX, y: e.clientY }));
+                U && (e.preventDefault(), e.stopPropagation(), Z({ x: e.clientX, y: e.clientY }));
             },
-            [U, X],
+            [U, Z],
         ),
         q = i.useCallback(
             (e) => {
@@ -95,8 +95,8 @@ let I = i.memo(function (e) {
                 i = 0.5 - V.x / (e * N),
                 r = 0.5 - V.y / (t * N);
             return {
-                "--custom-zoom-indicator-left": `${100 * (0, a.clamp)(i - n / 2, 0, 1 - n)}%`,
-                "--custom-zoom-indicator-top": `${100 * (0, a.clamp)(r - l / 2, 0, 1 - l)}%`,
+                "--custom-zoom-indicator-left": `${100 * (0, s.clamp)(i - n / 2, 0, 1 - n)}%`,
+                "--custom-zoom-indicator-top": `${100 * (0, s.clamp)(r - l / 2, 0, 1 - l)}%`,
                 "--custom-zoom-indicator-width": `${100 * n}%`,
                 "--custom-zoom-indicator-height": `${100 * l}%`,
                 "--custom-zoom-indicator-transition":
@@ -135,7 +135,7 @@ let I = i.memo(function (e) {
     }),
     _ && null != n)
         ? (0, l.jsxs)("div", {
-              className: s()(C.ne, { [C.Ge]: O || $ }),
+              className: a()(C.ne, { [C.Ge]: O || $ }),
               onMouseEnter: B,
               onMouseLeave: K,
               onClick: j,
@@ -152,12 +152,12 @@ let I = i.memo(function (e) {
                               onPointerDown: function (e) {
                                   S(e) && e.currentTarget.setPointerCapture(e.pointerId);
                               },
-                              onMouseDown: Z,
+                              onMouseDown: X,
                               onMouseMove: Q,
                               onMouseUp: q,
                               children: [
                                   (0, l.jsx)(J, {
-                                      className: s()(C.BZ, { [E.mirror]: t }),
+                                      className: a()(C.BZ, { [E.mirror]: t }),
                                       streamId: n,
                                       paused: r,
                                       reportContainerResized: !1,

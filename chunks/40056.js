@@ -1,8 +1,8 @@
 var l = n(477900),
     i = n(582128),
     r = n(435558),
-    s = n(451988),
-    a = n(964486),
+    a = n(451988),
+    s = n(964486),
     o = n(652896),
     u = n(834757),
     c = n(290863),
@@ -57,7 +57,7 @@ let p = { x: 0, y: 0 },
             [b, y] = i.useState({ x: 0, y: 0 }),
             _ = i.useRef(null),
             N = i.useRef(null);
-        (0, a.l0)(() => {
+        (0, s.l0)(() => {
             N.current?.stop();
         });
         let w = i.useCallback(
@@ -66,22 +66,22 @@ let p = { x: 0, y: 0 },
                     let n = t ?? c,
                         l = _.current.clientWidth,
                         i = _.current.clientHeight,
-                        s = (l * (n - 1)) / 2,
-                        a = (i * (n - 1)) / 2;
-                    return { x: (0, r.clamp)(e.x, -s, s), y: (0, r.clamp)(e.y, -a, a) };
+                        a = (l * (n - 1)) / 2,
+                        s = (i * (n - 1)) / 2;
+                    return { x: (0, r.clamp)(e.x, -a, a), y: (0, r.clamp)(e.y, -s, s) };
                 },
                 [c],
             ),
             k = i.useCallback(
                 (e, l, i) => {
-                    let a = (0, r.clamp)(e, n, o);
-                    if (null == l || a === c) return;
+                    let s = (0, r.clamp)(e, n, o);
+                    if (null == l || s === c) return;
                     h(!0);
-                    let u = a / c;
-                    (y((e) => w({ x: (e.x - l.x) * u + l.x, y: (e.y - l.y) * u + l.y }, a)),
-                        d(a),
-                        f(a, i, t),
-                        null == N.current && (N.current = new s.Ep()),
+                    let u = s / c;
+                    (y((e) => w({ x: (e.x - l.x) * u + l.x, y: (e.y - l.y) * u + l.y }, s)),
+                        d(s),
+                        f(s, i, t),
+                        null == N.current && (N.current = new a.Ep()),
                         N.current.start(2e3, () => {
                             h(!1);
                         }));

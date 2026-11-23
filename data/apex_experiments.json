@@ -3616,6 +3616,38 @@
     }
   },
   {
+    "kind": "guild",
+    "name": "2026-09-mobile-nlp-search-guild-experiment",
+    "defaultConfig": {
+      "enabled": false
+    },
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "kind": "user",
+    "name": "2026-09-mobile-nlp-search-user-flag",
+    "defaultConfig": {
+      "enabled": false
+    },
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": true
+      }
+    }
+  },
+  {
     "name": "2026-09-mobile-quest-home-sort-priority",
     "kind": "user",
     "defaultConfig": {
@@ -5736,6 +5768,22 @@
     }
   },
   {
+    "name": "2026-11-game-stats-widget-skip-connect-modal",
+    "kind": "user",
+    "defaultConfig": {
+      "enabled": false
+    },
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": true
+      }
+    }
+  },
+  {
     "name": "2026-11-holiday-ringtone",
     "kind": "user",
     "defaultConfig": {
@@ -5948,6 +5996,46 @@
     }
   },
   {
+    "name": "2026-11-quest-home-hero-shared-ad-refresh",
+    "kind": "user",
+    "defaultConfig": {
+      "enabled": false
+    },
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": false
+      },
+      "2": {
+        "enabled": true
+      },
+      "3": {
+        "enabled": true
+      },
+      "4": {
+        "enabled": true
+      },
+      "5": {
+        "enabled": true
+      },
+      "6": {
+        "enabled": true
+      },
+      "7": {
+        "enabled": true
+      },
+      "8": {
+        "enabled": true
+      },
+      "9": {
+        "enabled": true
+      }
+    }
+  },
+  {
     "name": "2026-11-quest-home-tile-single-elements",
     "kind": "user",
     "defaultConfig": null,
@@ -6152,6 +6240,22 @@
   {
     "name": "2026-11-stream-drawing",
     "kind": "user",
+    "defaultConfig": {
+      "enabled": false
+    },
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "name": "2026-11-stream-drawing-guild",
+    "kind": "guild",
     "defaultConfig": {
       "enabled": false
     },

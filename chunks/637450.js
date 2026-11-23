@@ -239,7 +239,7 @@ class B extends y.G {
             { no: 14, name: "user_has_flag", kind: "message", oneof: "filter", T: () => eZ },
             { no: 15, name: "unit_id_in_range_by_hash", kind: "message", oneof: "filter", T: () => e1 },
             { no: 16, name: "client_release_channel", kind: "message", oneof: "filter", T: () => e3 },
-            { no: 17, name: "always", kind: "message", oneof: "filter", T: () => e7 },
+            { no: 17, name: "always", kind: "message", oneof: "filter", T: () => e4 },
             { no: 18, name: "client_system_locale", kind: "message", oneof: "filter", T: () => Z },
             { no: 19, name: "unit_id_in_experiment", kind: "message", oneof: "filter", T: () => e9 },
             { no: 20, name: "user_premium_type", kind: "message", oneof: "filter", T: () => tt },
@@ -357,7 +357,7 @@ class B extends y.G {
                 case 17:
                     r.filter = {
                         oneofKind: "always",
-                        always: e7.internalBinaryRead(e, e.uint32(), n, r.filter.always),
+                        always: e4.internalBinaryRead(e, e.uint32(), n, r.filter.always),
                     };
                     break;
                 case 18:
@@ -488,7 +488,7 @@ class B extends y.G {
             "clientReleaseChannel" === e.filter.oneofKind &&
                 e3.internalBinaryWrite(e.filter.clientReleaseChannel, t.tag(16, O.O0.LengthDelimited).fork(), n).join(),
             "always" === e.filter.oneofKind &&
-                e7.internalBinaryWrite(e.filter.always, t.tag(17, O.O0.LengthDelimited).fork(), n).join(),
+                e4.internalBinaryWrite(e.filter.always, t.tag(17, O.O0.LengthDelimited).fork(), n).join(),
             "clientSystemLocale" === e.filter.oneofKind &&
                 Z.internalBinaryWrite(e.filter.clientSystemLocale, t.tag(18, O.O0.LengthDelimited).fork(), n).join(),
             "unitIdInExperiment" === e.filter.oneofKind &&
@@ -2240,8 +2240,8 @@ class e8 extends y.G {
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);
     }
 }
-let e7 = new e8();
-class e4 extends y.G {
+let e4 = new e8();
+class e7 extends y.G {
     constructor() {
         super(
             "discord_protos.discord_experimentation.v1.UnitIdInExperiment",
@@ -2297,7 +2297,7 @@ class e4 extends y.G {
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);
     }
 }
-let e9 = new e4();
+let e9 = new e7();
 class te extends y.G {
     constructor() {
         super(
@@ -3356,7 +3356,7 @@ class tB extends y.G {
             },
             {
                 no: 2,
-                name: "fiscal_half",
+                name: "fiscal_period",
                 kind: "enum",
                 T: () => ["discord_protos.discord_experimentation.v1.HoldoutScope.FiscalPeriod", tL],
             },
@@ -3364,7 +3364,7 @@ class tB extends y.G {
         ]);
     }
     create(e) {
-        let t = { level: 0, fiscalHalf: 0, fiscalYear: 0 };
+        let t = { level: 0, fiscalPeriod: 0, fiscalYear: 0 };
         return (
             globalThis.Object.defineProperty(t, L.$, { enumerable: !1, value: this }),
             void 0 !== e && (0, R.x)(this, t, e),
@@ -3381,7 +3381,7 @@ class tB extends y.G {
                     r.level = e.int32();
                     break;
                 case 2:
-                    r.fiscalHalf = e.int32();
+                    r.fiscalPeriod = e.int32();
                     break;
                 case 3:
                     r.fiscalYear = e.int32();
@@ -3398,7 +3398,7 @@ class tB extends y.G {
     }
     internalBinaryWrite(e, t, n) {
         (0 !== e.level && t.tag(1, O.O0.Varint).int32(e.level),
-            0 !== e.fiscalHalf && t.tag(2, O.O0.Varint).int32(e.fiscalHalf),
+            0 !== e.fiscalPeriod && t.tag(2, O.O0.Varint).int32(e.fiscalPeriod),
             0 !== e.fiscalYear && t.tag(3, O.O0.Varint).int32(e.fiscalYear));
         let i = n.writeUnknownFields;
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);

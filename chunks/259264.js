@@ -2,8 +2,8 @@ n.d(t, { $: () => x, A: () => v });
 var l,
     i = n(477900),
     r = n(582128),
-    s = n(503698),
-    a = n.n(s),
+    a = n(503698),
+    s = n.n(a),
     o = n(289873),
     u = n(205693),
     c = n(451988),
@@ -20,7 +20,7 @@ let v = r.memo(function (e) {
             streamId: t,
             onResize: n,
             wrapperClassName: l,
-            videoComponent: s,
+            videoComponent: a,
             className: p,
             fit: x = "contain",
             mirror: v = !1,
@@ -45,19 +45,19 @@ let v = r.memo(function (e) {
         D = x;
     ("cover-landscape" === x && ((D = "cover"), null != R && R.width < R.height && (D = "contain")),
         (function (e) {
-            let { location: t, videoSpinnerContext: n, userId: l, streamId: i, loading: s, paused: a = !1 } = e,
+            let { location: t, videoSpinnerContext: n, userId: l, streamId: i, loading: a, paused: s = !1 } = e,
                 [o] = r.useState(() => new d.M(t));
             r.useEffect(() => {
-                a || (s ? o.onSpinnerStarted() : null != i && o.trackSpinnerDuration(n, l, i));
-            }, [s, a, i, o, n, l]);
+                s || (a ? o.onSpinnerStarted() : null != i && o.trackSpinnerDuration(n, l, i));
+            }, [a, s, i, o, n, l]);
         })({ location: "VideoStream", videoSpinnerContext: b, userId: y, streamId: t, loading: w, paused: E }));
     let { onReady: M } = (function (e) {
-            let { streamId: t, userId: n, videoSpinnerContext: l, streamKey: i, loading: s, paused: a = !1 } = e,
+            let { streamId: t, userId: n, videoSpinnerContext: l, streamKey: i, loading: a, paused: s = !1 } = e,
                 o = r.useRef(new c.Ep()),
                 p = l === d.u.SELF_STREAM || l === d.u.REMOTE_STREAM ? u.x.STREAM : u.x.DEFAULT;
             return (
                 r.useEffect(() => {
-                    if (!s || a || !m.X.isIncomingVideoEnabled()) return;
+                    if (!a || s || !m.X.isIncomingVideoEnabled()) return;
                     let e = o.current;
                     return (
                         e.start(f, () => {
@@ -67,7 +67,7 @@ let v = r.memo(function (e) {
                             e.stop();
                         }
                     );
-                }, [a, t, s, p, i, n]),
+                }, [s, t, a, p, i, n]),
                 {
                     onReady: r.useCallback(() => {
                         (o.current.stop(), (0, g.W)(p, n));
@@ -80,11 +80,11 @@ let v = r.memo(function (e) {
         }, [M]);
     return (0, i.jsxs)("div", {
         hidden: C,
-        className: a()(A.wrapper, l),
+        className: s()(A.wrapper, l),
         children: [
             null != t &&
-                (0, i.jsx)(s, {
-                    className: a()(A.video, (0, h.t)(A, "video", D), { [A.mirror]: v }, p),
+                (0, i.jsx)(a, {
+                    className: s()(A.video, (0, h.t)(A, "video", D), { [A.mirror]: v }, p),
                     streamId: t,
                     onResize: T,
                     onReady: O,
@@ -95,7 +95,7 @@ let v = r.memo(function (e) {
             E
                 ? null
                 : (0, i.jsx)("div", {
-                      className: a()(A.previewWrapper, { [A.loading]: w }),
+                      className: s()(A.previewWrapper, { [A.loading]: w }),
                       children:
                           w &&
                           (0, i.jsxs)(r.Fragment, {
