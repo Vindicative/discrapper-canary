@@ -898,10 +898,24 @@ function e4(e) {
     for (let [t, n] of l) if (n.iframe === e) return t;
     return null;
 }
+let e7 = null;
 n.d(
     t,
     {},
     {
+        FO: function (e) {
+            let t = e3(),
+                n = e4(e);
+            return null != n && t?.openDevTools != null && (e7 ??= t.canOpenDevTools?.() === !0)
+                ? async () => {
+                      try {
+                          await t.openDevTools?.(n);
+                      } catch (e) {
+                          s.warn(`frame view ${n} DevTools did not open`, e);
+                      }
+                  }
+                : null;
+        },
         H3: function (e) {
             for (let t of l.values())
                 if (t.source === e) {
