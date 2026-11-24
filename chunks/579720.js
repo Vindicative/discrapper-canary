@@ -40,7 +40,7 @@ function h(e, t, n) {
         { collectionId: u, promotions: c, startsAt: d } = e,
         h = (0, s.bG)([a.default], () => a.default.getCurrentUser()?.id),
         E = (0, s.bG)([m], () => null != h && null != u && null != n && m.isDayRevealed(h, u, n)),
-        p = l.useCallback(() => {
+        f = l.useCallback(() => {
             null != u && null != n && (0, i.cb)(u, n);
         }, [u, n]);
     return l.useMemo(() => {
@@ -59,6 +59,7 @@ function h(e, t, n) {
                     cardShape: a,
                     tileProps: {
                         day: s,
+                        collectionId: u,
                         cardShape: o || a === r.G.LARGE_SQUARE ? a : r.G.SMALL_SQUARE,
                         isHintCentered: o && (a === r.G.TALL || a === r.G.WIDE),
                         state: (0, g.q9)({ position: s, openPosition: n, hintPosition: e, isOpenPositionRevealed: E }),
@@ -69,9 +70,9 @@ function h(e, t, n) {
                         revealAnimationUrl: o ? (i.calendarRevealAnimation ?? i.revealAnimation) : i.revealAnimation,
                         tilePosition: s - 1,
                         revealDate: (0, g.KH)(d, s),
-                        onReveal: p,
+                        onReveal: f,
                     },
                 };
             });
-    }, [c, t, n, E, p, o, d]);
+    }, [c, u, t, n, E, f, o, d]);
 }

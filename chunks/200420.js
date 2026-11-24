@@ -15,48 +15,48 @@ var l = n(477900),
     p = n(129230),
     f = n(857512),
     x = n(993408),
-    A = n(212407),
-    v = n(815280),
-    C = n(665414),
+    C = n(212407),
+    A = n(815280),
+    v = n(665414),
     b = n(821609),
-    y = n(313217),
-    L = n(172218),
-    _ = n(140735),
-    S = n(598047),
-    I = n(396583),
-    j = n(568631),
+    L = n(313217),
+    _ = n(172218),
+    y = n(140735),
+    I = n(598047),
+    S = n(396583),
+    N = n(568631),
     k = n(792996),
-    N = n(868102);
+    j = n(868102);
 let O = r.memo((e) => {
         let { endsAt: t, onCountdownEnd: n } = e,
-            s = (0, S.A)(),
+            s = (0, I.A)(),
             [a, i] = r.useState(!0),
             [, o] = r.useReducer((e) => e + 1, 0),
             u = r.useRef(!1),
             c = r.useCallback((e) => {
                 i(e);
             }, []),
-            m = (0, L.K)(c, 0),
-            g = (0, j.Ty)(t),
-            h = (0, j.lF)(g);
+            m = (0, _.K)(c, 0),
+            g = (0, N.Ty)(t),
+            h = (0, N.lF)(g);
         return (
-            (0, I.A)(o, h || !(s && a) ? null : 1e3),
+            (0, S.A)(o, h || !(s && a) ? null : 1e3),
             r.useEffect(() => {
                 h && !u.current && ((u.current = !0), n());
             }, [h, n]),
             (0, l.jsxs)("div", {
                 ref: m,
-                className: N.qW,
+                className: j.qW,
                 role: "timer",
                 children: [
-                    (0, j.z0)(g).map((e, t) =>
+                    (0, N.z0)(g).map((e, t) =>
                         (0, l.jsxs)(
                             r.Fragment,
                             {
                                 children: [
-                                    t > 0 && (0, l.jsx)("div", { className: N.kx, "aria-hidden": !0 }),
+                                    t > 0 && (0, l.jsx)("div", { className: j.kx, "aria-hidden": !0 }),
                                     (0, l.jsx)("div", {
-                                        className: N.t8,
+                                        className: j.t8,
                                         "aria-hidden": !0,
                                         children: e
                                             .split("")
@@ -67,7 +67,7 @@ let O = r.memo((e) => {
                                                         tag: "span",
                                                         variant: "heading-xl/semibold",
                                                         color: "currentColor",
-                                                        className: N.m3,
+                                                        className: j.m3,
                                                         children: e,
                                                     },
                                                     t,
@@ -79,7 +79,7 @@ let O = r.memo((e) => {
                             t,
                         ),
                     ),
-                    (0, l.jsx)(_.A, { children: k.intl.format(k.t.j6IyVe, g) }),
+                    (0, l.jsx)(y.A, { children: k.intl.format(k.t.j6IyVe, g) }),
                 ],
             })
         );
@@ -107,33 +107,33 @@ let O = r.memo((e) => {
                     default:
                         return { text: null, ctaText: k.intl.string(k.t["5GoOlx"]) };
                 }
-            })(n, t, (0, y.s)("collection_promotion_countdown_banner"));
+            })(n, t, (0, L.s)("collection_promotion_countdown_banner"));
         return (0, l.jsxs)("div", {
             className: a()(
-                N.kL,
+                j.kL,
                 (function (e) {
                     switch (e) {
-                        case C.i.LIGHT:
-                            return N.BB;
-                        case C.i.DARK:
-                            return N.XT;
-                        case C.i.GRADIENT_V1:
-                            return N.eg;
-                        case C.i.TRANSPARENT:
-                            return N.JO;
+                        case v.i.LIGHT:
+                            return j.BB;
+                        case v.i.DARK:
+                            return j.XT;
+                        case v.i.GRADIENT_V1:
+                            return j.eg;
+                        case v.i.TRANSPARENT:
+                            return j.JO;
                         default:
-                            return N.XT;
+                            return j.XT;
                     }
                 })(n.countdownStyle),
-                { [N.CT]: n.countdownPosition === i.l.LEFT },
+                { [j.CT]: n.countdownPosition === i.l.LEFT },
             ),
             children: [
                 (0, l.jsx)(O, { endsAt: n.endsAt, onCountdownEnd: o }, n.endsAt.getTime()),
-                (0, l.jsx)(d.E, { variant: "body-md/semibold", color: "currentColor", className: N.fn, children: u }),
+                (0, l.jsx)(d.E, { variant: "body-md/semibold", color: "currentColor", className: j.fn, children: u }),
                 n.showCountdownCta &&
                     !r &&
                     (0, l.jsx)("div", {
-                        className: N.lO,
+                        className: j.lO,
                         children: (0, l.jsx)(b.$, { variant: "overlay-primary", fullWidth: !0, onClick: s, text: c }),
                     }),
             ],
@@ -148,23 +148,23 @@ let B = (e) => {
             heroBlock: t,
             collectionPromotion: n,
             handleTransition: s,
-            tab: C,
+            tab: v,
             onPromotionEnd: b,
-            hideCards: y = !1,
-            forceHideCountdownCta: L = !1,
+            hideCards: L = !1,
+            forceHideCountdownCta: _ = !1,
         } = e,
-        _ = (0, o.bG)([E.default], () => E.default.getCurrentUser()),
-        S = (0, f.uM)(),
-        { analyticsLocations: I } = (0, g.Ay)(m.A.COLLECTIBLES_SHOP_HERO),
+        y = (0, o.bG)([E.default], () => E.default.getCurrentUser()),
+        I = (0, f.uM)(),
+        { analyticsLocations: S } = (0, g.Ay)(m.A.COLLECTIBLES_SHOP_HERO),
         {
-            bannerDisplayConfig: j,
-            logoDisplayConfig: N,
+            bannerDisplayConfig: N,
+            logoDisplayConfig: j,
             heroLogo: O,
             heroBannerStatic: B,
             heroBannerAnimated: w,
-        } = (0, A.Kk)(t),
-        H = j?.responsive ?? !1,
-        U = j?.backgroundStyle,
+        } = (0, C.Kk)(t),
+        H = N?.responsive ?? !1,
+        U = N?.backgroundStyle,
         { sourceButton: G, ctaName: F } = (function (e) {
             switch (e.type) {
                 case h.hE.COLLECTION_SALE:
@@ -181,38 +181,41 @@ let B = (e) => {
         $ = r.useCallback(() => {
             (s({ sourceButton: G, categorySkuId: t.categorySkuId, isInternalShopDeeplink: !0 }),
                 p.default.track(P.HAw.COLLECTIBLES_SHOP_ELEMENT_CLICKED, {
-                    collectibles_shop_session_id: S?.sessionId,
+                    collectibles_shop_session_id: I?.sessionId,
                     sku_id: t.categorySkuId,
-                    page_type: C,
-                    page_section: S?.pageSection,
-                    page_category: S?.pageCategory,
+                    page_type: v,
+                    page_section: I?.pageSection,
+                    page_category: I?.pageCategory,
                     cta_name: F,
                 }));
-        }, [s, G, t.categorySkuId, S, C, F]);
-    if (null == _) return null;
+        }, [s, G, t.categorySkuId, I, v, F]);
+    if (null == y) return null;
     let V = n.countdownPosition === i.l.LEFT,
         K = (0, l.jsx)(T, {
             collectionName: t.name,
             collectionPromotion: n,
-            forceHideCountdownCta: L,
+            forceHideCountdownCta: _,
             onShopSale: $,
             onCountdownEnd: b,
         });
     return (0, l.jsx)(g.f5, {
-        value: I,
+        value: S,
         children: (0, l.jsxs)("div", {
             className: M.os,
             children: [
                 (0, l.jsx)("div", {
                     className: a()(M.vK, { [M.no]: H }),
                     style: null != U ? { background: U } : void 0,
-                    children: null != B && (0, l.jsx)(v.A, { bannerStatic: B, bannerAnimated: w, isResponsive: H }),
+                    children: null != B && (0, l.jsx)(A.A, { bannerStatic: B, bannerAnimated: w, isResponsive: H }),
                 }),
                 (0, l.jsxs)("div", {
                     className: M.xX,
                     children: [
                         (0, l.jsxs)("div", {
-                            className: a()(M.uZ, M.bC, { [M.no]: H }),
+                            className: a()(M.uZ, M.bC, {
+                                [M.no]: H,
+                                [M.BI]: v === D.G2.COLLECTION_INDEX && n.type === h.hE.COLLECTION_SEQUENCED_OFFER,
+                            }),
                             children: [
                                 (0, l.jsxs)("div", {
                                     className: M.Hw,
@@ -234,7 +237,7 @@ let B = (e) => {
                                                         draggable: !1,
                                                         src: O,
                                                         alt: t.name,
-                                                        style: N?.toDesktopStyles(),
+                                                        style: j?.toDesktopStyles(),
                                                     }),
                                                 null != t.title &&
                                                     (0, l.jsx)(c.D, {
@@ -258,12 +261,12 @@ let B = (e) => {
                                 !V && (0, l.jsx)("div", { className: M.pv, children: K }),
                             ],
                         }),
-                        !y &&
+                        !L &&
                             (0, l.jsx)(R.A, {
                                 heroBlockRecord: t,
-                                tab: C,
+                                tab: v,
                                 isBlockLoading: !1,
-                                layout: C === D.G2.HOME ? "hscroll" : "feed",
+                                layout: v === D.G2.HOME ? "hscroll" : "feed",
                                 onViewAll: $,
                             }),
                     ],

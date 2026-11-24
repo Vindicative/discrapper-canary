@@ -3310,6 +3310,7 @@ var il =
         (eL[(eL.MOBILE = 5)] = "MOBILE"),
         (eL[(eL.PREMIUM_TIER_0 = 6)] = "PREMIUM_TIER_0"),
         (eL[(eL.MOBILE_PREMIUM_TIER_2 = 7)] = "MOBILE_PREMIUM_TIER_2"),
+        (eL[(eL.MOBILE_GIFT = 8)] = "MOBILE_GIFT"),
         eL);
 let id = Object.freeze({
     fonts: [{ src: "url(https://cdn.discordapp.com/assets/stripe/ggsans-vf.woff2)", family: "gg sans" }],
@@ -4915,6 +4916,7 @@ var ih =
         (eP.SHOP_PRODUCT_DETAIL_PAGE_CLICKED = "shop_product_detail_page_clicked"),
         (eP.SHOP_CARD_CLICKED = "shop_card_clicked"),
         (eP.SHOP_COLLECT_AND_CLAIM_TAKEOVER_PROMOTION_ACTION = "shop_collect_and_claim_takeover_promotion_action"),
+        (eP.SHOP_SEQUENCED_OFFER_PROMOTION_ACTION = "shop_sequenced_offer_promotion_action"),
         (eP.SLIDE_CAROUSEL_ITEM_VIEWED = "slide_carousel_item_viewed"),
         (eP.SLIDE_CAROUSEL_PAGINATION_CLICKED = "slide_carousel_pagination_clicked"),
         (eP.SHOP_HEADER_CAROUSEL_CTA_CLICKED = "shop_header_carousel_cta_clicked"),
