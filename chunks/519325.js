@@ -248,9 +248,8 @@ let K = (function (e) {
 let $ = {
     openConjureAppInstallModal: async function (e) {
         let { onClose: t, ...i } = e,
-            { openOAuth2Modal: r } = await Promise.resolve().then(n.bind(n, 610056));
-        r(
-            (function (e) {
+            { openOAuth2Modal: r } = await Promise.resolve().then(n.bind(n, 610056)),
+            a = (function (e) {
                 let { applicationId: t, application: n, guildId: i } = e,
                     r = n?.integrationTypesConfig?.[U.b.GUILD_INSTALL]?.oauth2InstallParams ?? n?.installParams;
                 return {
@@ -263,8 +262,8 @@ let $ = {
                     callback: () => ((0, x.eO)(t, { withMutualGuilds: !0 }), !0),
                 };
             })(i),
-            t,
-        );
+            s = !1;
+        r({ ...a, callback: (e) => ((s = !0 !== e.canceled), a.callback?.(e)) }, () => t?.(s));
     },
     isWindowFocused: function () {
         return l.A.isFocused();
@@ -314,7 +313,7 @@ let $ = {
                 n.e(490743),
                 n.e(44141),
                 n.e(428643),
-                n.e(398384),
+                n.e(251400),
                 n.e(630290),
                 n.e(668756),
                 n.e(60002),
@@ -334,7 +333,7 @@ let $ = {
                 n.e(311913),
                 n.e(881717),
                 n.e(918221),
-                n.e(139462),
+                n.e(899894),
                 n.e(474172),
                 n.e(363269),
                 n.e(232731),
@@ -433,10 +432,10 @@ let $ = {
                 n.e(664430),
                 n.e(375234),
                 n.e(916519),
-                n.e(513455),
+                n.e(815341),
                 n.e(192847),
                 n.e(407327),
-            ]).then(n.bind(n, 739890));
+            ]).then(n.bind(n, 399503));
             return await i(e, { captureId: t, build: s, onAccepted: l, resolveUploadUrl: o });
         }
         let d = (0, c.Wg)(e);
