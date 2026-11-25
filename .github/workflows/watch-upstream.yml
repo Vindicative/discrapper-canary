@@ -1,0 +1,63 @@
+name: Watch upstream and ping Discord
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      force_notify:
+        description: "Ping Discord for the latest upstream commit even if nothing's new"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch-upstream
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Peek at upstream
+        id: sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPSTREAM: Wumpus-Central/discrapper-canary
+          FORCE: ${{ inputs.force_notify }}
+        run: |
+          NEW=$(gh api repos/$UPSTREAM/commits/main --jq .sha)
+          OLD=$(cat .last_upstream_sha 2>/dev/null || true)
+          # first run: just remember the latest commit, don't spam anyone
+          [ -z "$OLD" ] && OLD=$NEW
+          if [ "$FORCE" = "true" ] && [ "$OLD" = "$NEW" ]; then
+            OLD=$(gh api repos/$UPSTREAM/commits/$NEW --jq '.parents[0].sha')
+          fi
+          echo "old=$OLD" >> "$GITHUB_OUTPUT"
+          echo "new=$NEW" >> "$GITHUB_OUTPUT"
+
+      - name: Ping Discord
+        if: steps.sync.outputs.old != steps.sync.outputs.new
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          UPSTREAM: Wumpus-Central/discrapper-canary
+          OLD: ${{ steps.sync.outputs.old }}
+          NEW: ${{ steps.sync.outputs.new }}
+          STRINGS_PATH: ${{ vars.STRINGS_PATH }}
+          STRINGS_ROLE_ID: ${{ vars.STRINGS_ROLE_ID }}
+        run: python3 notify.py
+
+      - name: Remember the last commit we saw
+        env:
+          NEW: ${{ steps.sync.outputs.new }}
+        run: |
+          echo "$NEW" > .last_upstream_sha
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .last_upstream_sha
+          git diff --cached --quiet || (git commit -m "chore: bump last seen upstream sha" && git push)
