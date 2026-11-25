@@ -83,7 +83,6 @@ let r = (0, n(945810).mj)({
         i.M.COLLECTIBLES_SHOP_WIDE_BANNER,
         i.M.GAME_SHOP_NEW_BADGE,
         i.M.TRIAL_FOR_ALL_2026_SETTINGS_BADGE,
-        i.M.MOBILE_SHOP_BROWSE_ALL_NITRO_UPSELL,
         i.M.SHOP_TWELVE_DAYS_MOBILE_HOME_NAGBAR,
         i.M.SLAYER_STOREFRONT_VC_GIFTING_STREAM_HEADER_NEW_BADGE,
         i.M.SLAYER_STOREFRONT_VC_GIFTING_PANEL_APP_WIDGET_CTA,
@@ -126,6 +125,7 @@ let r = (0, n(945810).mj)({
         i.M.AUTOCLIPPING_EARLY_ACCESS_LAUNCH_ANNOUNCEMENT,
         i.M.ORB_WALLET_SHOP_CTA_CARD_MOBILE,
         i.M.ORB_WALLET_NITRO_UPSELL_CTA_CARD_MOBILE,
+        i.M.BUILD_A_BEAR_RELAUNCH_COACHMARK,
     ]);
 function s(e) {
     return (
@@ -425,6 +425,8 @@ let l = {
     910: { is_server_arbitrated: !0 },
     911: { is_server_arbitrated: !1 },
     912: { is_server_arbitrated: !1 },
+    913: { is_server_arbitrated: !1 },
+    914: { is_server_arbitrated: !1 },
 };
 function o(e) {
     return l[e]?.is_server_arbitrated === !0;

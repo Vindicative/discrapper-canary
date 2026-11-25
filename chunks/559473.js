@@ -1,4 +1,4 @@
-(n.r(t), n.d(t, { default: () => e6 }));
+(n.r(t), n.d(t, { default: () => e2 }));
 var l,
     i = n(477900),
     s = n(582128),
@@ -269,7 +269,7 @@ function eo() {
                                                         n.e(291329),
                                                         n.e(449933),
                                                         n.e(985236),
-                                                        n.e(254929),
+                                                        n.e(796937),
                                                         n.e(799357),
                                                         n.e(889880),
                                                         n.e(375724),
@@ -363,7 +363,6 @@ function eo() {
                                                         n.e(266900),
                                                         n.e(707826),
                                                         n.e(948804),
-                                                        n.e(199999),
                                                         n.e(37085),
                                                         n.e(890027),
                                                         n.e(638221),
@@ -384,9 +383,9 @@ function eo() {
                                                         n.e(302008),
                                                         n.e(761935),
                                                         n.e(763070),
+                                                        n.e(292734),
                                                         n.e(502018),
                                                         n.e(276863),
-                                                        n.e(292734),
                                                         n.e(128796),
                                                         n.e(441432),
                                                         n.e(728633),
@@ -413,7 +412,7 @@ function eo() {
                                                         n.e(123216),
                                                         n.e(50015),
                                                         n.e(45072),
-                                                        n.e(263765),
+                                                        n.e(593176),
                                                         n.e(988077),
                                                         n.e(232551),
                                                         n.e(631644),
@@ -439,6 +438,7 @@ function eo() {
                                                         n.e(124060),
                                                         n.e(240511),
                                                         n.e(718573),
+                                                        n.e(784103),
                                                         n.e(146566),
                                                         n.e(693832),
                                                         n.e(32661),
@@ -454,7 +454,6 @@ function eo() {
                                                         n.e(817852),
                                                         n.e(996218),
                                                         n.e(133179),
-                                                        n.e(784103),
                                                         n.e(614784),
                                                         n.e(8563),
                                                         n.e(499941),
@@ -478,6 +477,7 @@ function eo() {
                                                         n.e(959134),
                                                         n.e(68904),
                                                         n.e(796867),
+                                                        n.e(86721),
                                                         n.e(919307),
                                                         n.e(924862),
                                                         n.e(565617),
@@ -505,6 +505,7 @@ function eo() {
                                                         n.e(474055),
                                                         n.e(744385),
                                                         n.e(29664),
+                                                        n.e(104513),
                                                         n.e(471064),
                                                         n.e(282094),
                                                         n.e(250478),
@@ -528,9 +529,8 @@ function eo() {
                                                         n.e(394317),
                                                         n.e(12762),
                                                         n.e(304329),
-                                                        n.e(911521),
                                                         n.e(299086),
-                                                        n.e(805775),
+                                                        n.e(956076),
                                                         n.e(127079),
                                                         n.e(669030),
                                                         n.e(349401),
@@ -977,7 +977,7 @@ function e0(e) {
     r.w.set(eH, e);
 }
 let e9 = null;
-function e2(e) {
+function e6(e) {
     let { resizableNode: t, onResize: n, onResizeEnd: l } = e,
         s = (0, m.A)({
             minDimension: 320,
@@ -990,7 +990,7 @@ function e2(e) {
         });
     return (0, i.jsx)("div", { onMouseDown: s, className: e$.Di, "aria-hidden": !0 });
 }
-function e6() {
+function e2() {
     let e = (0, x.fy)().metadata,
         t = (0, f.h)(e?.applicationId),
         n = s.useRef(!1),
@@ -1033,7 +1033,7 @@ function e6() {
         className: e$.nE,
         style: { width: E },
         children: [
-            (0, i.jsx)(e2, { resizableNode: r, onResize: A, onResizeEnd: e0 }),
+            (0, i.jsx)(e6, { resizableNode: r, onResize: A, onResizeEnd: e0 }),
             (0, i.jsx)(c.F, {
                 component: v,
                 children: (0, i.jsx)("div", {

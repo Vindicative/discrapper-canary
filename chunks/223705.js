@@ -1,1 +1,21 @@
-e.exports = p.p + "ba3ff33752bdeb90.scm";
+e.exports = {
+    T8: "positionLayer_dyDYQj",
+    sj: "positionLayerDefaultAlignLeft_dyDYQj",
+    Jg: "positionLayerDefaultAlignRight_dyDYQj",
+    V6: "positionContainer_dyDYQj",
+    zw: "positionContainerAlignLeft_dyDYQj",
+    jP: "drawerSizingWrapper_dyDYQj",
+    FG: "contentWrapper_dyDYQj",
+    D0: "positionContainerOnlyEmoji_dyDYQj",
+    $D: "contentWrapperEmojiPacks_dyDYQj",
+    iT: "resizeHandleTarget_dyDYQj",
+    Di: "resizeHandle_dyDYQj",
+    C$: "nav_dyDYQj",
+    CT: "navList_dyDYQj",
+    Mf: "tab_dyDYQj",
+    yR: "tabActive_dyDYQj",
+    Gn: "tabLabel_dyDYQj",
+    sd: "soundmojiLabelContainer_dyDYQj",
+    z: "soundboardContainer_dyDYQj",
+    BG: "soundboardHeader_dyDYQj",
+};

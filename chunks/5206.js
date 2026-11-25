@@ -71,7 +71,7 @@ function er(e, t) {
 }
 var eo = n(598071),
     ec = n(101555),
-    ed = n(546811),
+    ed = n(657194),
     eu = n(703007),
     eh = n(2553),
     em = n(946274),
@@ -1049,7 +1049,7 @@ var tN = n(982024),
     tL = n(751258),
     tP = n(451909),
     tO = n(926262),
-    tG = n(812266),
+    tG = n(730276),
     tU = n(537174),
     tw = n(973196),
     tF = n(361729),
@@ -2025,8 +2025,8 @@ class nW extends i.PureComponent {
 }
 function n$(e) {
     let { channel: t } = e,
-        { isFocused: n } = (0, e2.D7)();
-    return n ? null : (0, l.jsx)(S.Ay, { channel: t, isInTextChannel: !0 });
+        { conversationFocus: n } = (0, e2.D7)();
+    return null != n ? null : (0, l.jsx)(S.Ay, { channel: t, isInTextChannel: !0 });
 }
 let nq = i.memo(function (e) {
     var t, n;

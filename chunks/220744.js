@@ -324,7 +324,7 @@ function eI(e, t, n) {
                 l.e(991625),
                 l.e(230029),
                 l.e(488926),
-                l.e(251400),
+                l.e(398384),
                 l.e(203112),
                 l.e(762831),
                 l.e(324469),
@@ -632,8 +632,8 @@ var eZ = l(83827),
     e1 = l(683063),
     e2 = l(573435),
     e6 = l(409626),
-    e4 = l(692969),
-    e3 = l(396583),
+    e3 = l(692969),
+    e4 = l(396583),
     e9 = l(46653),
     e8 = l(994500);
 function e7(e, t) {
@@ -874,7 +874,7 @@ function to(e) {
 }
 function tc(e) {
     let { game: t, notched: l, onOpenActivity: n, onTrackClick: s } = e,
-        a = (0, e4.A)({
+        a = (0, e3.A)({
             location: "GameIconButton",
             applicationId: t.id,
             source: e6.GameProfileSources.GuildSpaceLeaderboard,
@@ -1566,7 +1566,7 @@ function tF(e) {
                 a = i <= 0,
                 r = i - (Math.ceil(i / ep.A.Millis.DAY) - 1) * ep.A.Millis.DAY;
             return (
-                (0, e3.A)(() => n(Date.now()), a ? null : r),
+                (0, e4.A)(() => n(Date.now()), a ? null : r),
                 s.useMemo(
                     () => ({
                         ended: a,
@@ -1759,8 +1759,8 @@ function t6(e) {
         role: r ?? "img",
     });
 }
-var t4 = l(22231),
-    t3 = l(445187);
+var t3 = l(22231),
+    t4 = l(445187);
 function t9(e) {
     let { alt: t, ariaLabel: l, ariaHidden: n, role: r, width: d, height: o, className: c, style: u } = e,
         m = s.useMemo(
@@ -1876,7 +1876,7 @@ function lo(e) {
 function lc(e) {
     let { guildId: t, entry: l, games: n, onClick: s } = e,
         { name: a, coverUrl: r, coverFallbackIconUrl: d, isLoading: o } = ef(n, l.application_id),
-        c = (0, e4.A)({
+        c = (0, e3.A)({
             location: "PopularGamesGameCard",
             applicationId: l.application_id,
             source: e6.GameProfileSources.GuildSpacePopularGames,
@@ -2387,8 +2387,8 @@ function lX(e) {
                                     l.e(291329),
                                     l.e(449933),
                                     l.e(985236),
-                                    l.e(251400),
-                                    l.e(254929),
+                                    l.e(398384),
+                                    l.e(796937),
                                     l.e(799357),
                                     l.e(491899),
                                     l.e(889880),
@@ -2478,7 +2478,6 @@ function lX(e) {
                                     l.e(266900),
                                     l.e(707826),
                                     l.e(948804),
-                                    l.e(199999),
                                     l.e(37085),
                                     l.e(890027),
                                     l.e(638221),
@@ -2498,10 +2497,10 @@ function lX(e) {
                                     l.e(302008),
                                     l.e(761935),
                                     l.e(763070),
+                                    l.e(292734),
                                     l.e(87306),
                                     l.e(502018),
                                     l.e(276863),
-                                    l.e(292734),
                                     l.e(441432),
                                     l.e(728633),
                                     l.e(628439),
@@ -2522,14 +2521,13 @@ function lX(e) {
                                     l.e(844780),
                                     l.e(592028),
                                     l.e(466354),
-                                    l.e(133902),
                                     l.e(349460),
                                     l.e(425906),
                                     l.e(92124),
                                     l.e(123353),
                                     l.e(123216),
                                     l.e(45072),
-                                    l.e(263765),
+                                    l.e(593176),
                                     l.e(988077),
                                     l.e(776750),
                                     l.e(76705),
@@ -2555,8 +2553,8 @@ function lX(e) {
                                     l.e(592731),
                                     l.e(723794),
                                     l.e(486309),
-                                    l.e(414260),
                                     l.e(894747),
+                                    l.e(603341),
                                     l.e(54953),
                                     l.e(317225),
                                     l.e(830993),
@@ -2567,6 +2565,7 @@ function lX(e) {
                                     l.e(124060),
                                     l.e(240511),
                                     l.e(718573),
+                                    l.e(784103),
                                     l.e(146566),
                                     l.e(693832),
                                     l.e(32661),
@@ -2582,7 +2581,6 @@ function lX(e) {
                                     l.e(817852),
                                     l.e(996218),
                                     l.e(133179),
-                                    l.e(784103),
                                     l.e(614784),
                                     l.e(8563),
                                     l.e(499941),
@@ -2605,6 +2603,7 @@ function lX(e) {
                                     l.e(959134),
                                     l.e(68904),
                                     l.e(796867),
+                                    l.e(86721),
                                     l.e(919307),
                                     l.e(924862),
                                     l.e(565617),
@@ -2640,6 +2639,7 @@ function lX(e) {
                                     l.e(744385),
                                     l.e(59413),
                                     l.e(29664),
+                                    l.e(104513),
                                     l.e(471064),
                                     l.e(282094),
                                     l.e(250478),
@@ -2743,13 +2743,13 @@ function l0(e) {
 var l1 = l(872351),
     l2 = l(708988),
     l6 = l(628137);
-let l4 = "none",
-    l3 = (e, t) => (0, i.jsx)(_.E, { tag: "span", variant: "body-xs/medium", color: "text-strong", children: e }, t);
+let l3 = "none",
+    l4 = (e, t) => (0, i.jsx)(_.E, { tag: "span", variant: "body-xs/medium", color: "text-strong", children: e }, t);
 function l9(e) {
     return e;
 }
 function l8(e) {
-    return e?.direction ?? l4;
+    return e?.direction ?? l3;
 }
 function l7(e) {
     if (null == e) return null;
@@ -2796,7 +2796,7 @@ function nl(e) {
         role: "group",
         "aria-label":
             ((t = n.unique_listeners),
-            C.intl.formatToPlainString(J.default.AzIhRB, { count: t, trend: l4, countHook: l9 })),
+            C.intl.formatToPlainString(J.default.AzIhRB, { count: t, trend: l3, countHook: l9 })),
         children: (0, i.jsx)(t7.Ay, {
             users: d,
             guildId: l,
@@ -2887,7 +2887,7 @@ function ns(e) {
                                 color: "text-subtle",
                                 children:
                                     ((t = a.plays),
-                                    C.intl.format(J.default["7hHUIS"], { count: t, trend: l8(r), countHook: l3 })),
+                                    C.intl.format(J.default["7hHUIS"], { count: t, trend: l8(r), countHook: l4 })),
                             }),
                             null != r && (0, i.jsx)(nt, { trend: r }),
                         ],
@@ -2969,8 +2969,8 @@ function nu(e) {
                               memberCount: a.distinct_listeners,
                               artistCount: a.distinct_artists,
                               trend: l8(x),
-                              memberCountHook: l3,
-                              artistCountHook: l3,
+                              memberCountHook: l4,
+                              artistCountHook: l4,
                           }),
                 trend: x,
             }),
@@ -3100,7 +3100,7 @@ function nj(e) {
                                     l.e(991625),
                                     l.e(230029),
                                     l.e(488926),
-                                    l.e(251400),
+                                    l.e(398384),
                                     l.e(203112),
                                     l.e(13566),
                                     l.e(324469),
@@ -3719,7 +3719,7 @@ function nV(e) {
                               : C.intl.format(J.default.AzIhRB, {
                                     count: r.distinct_listeners,
                                     trend: l8(p),
-                                    countHook: l3,
+                                    countHook: l4,
                                 }),
                       trend: p,
                   }),
@@ -3765,8 +3765,8 @@ var n1 = l(77915),
 function n6(e) {
     return e.default_title ?? C.intl.string(J.default["5xxUI2"]);
 }
-var n4 = l(890497),
-    n3 = l(734057),
+var n3 = l(890497),
+    n4 = l(734057),
     n9 = l(317525),
     n8 = l(576705),
     n7 = l(661191),
@@ -3811,7 +3811,7 @@ let ib = {
                               ? (0, i.jsx)(H.$, {
                                     variant: "secondary",
                                     size: "sm",
-                                    icon: t4.PencilIcon,
+                                    icon: t3.PencilIcon,
                                     text: C.intl.string(C.t.bt75uw),
                                     disabled: a,
                                     onClick: s,
@@ -3819,14 +3819,14 @@ let ib = {
                               : null,
                   })
                 : (0, i.jsxs)("div", {
-                      className: t3.kL,
+                      className: t4.kL,
                       children: [
-                          null != c && (0, i.jsx)("img", { className: t3.Sl, src: c, alt: "" }),
+                          null != c && (0, i.jsx)("img", { className: t4.Sl, src: c, alt: "" }),
                           null != r &&
                               (0, i.jsx)(_.E, {
                                   variant: "body-md/normal",
                                   color: "text-subtle",
-                                  className: t3.Qq,
+                                  className: t4.Qq,
                                   children: r,
                               }),
                       ],
@@ -4351,9 +4351,9 @@ let ib = {
                 l,
                 n = (0, n5.n)(),
                 a = (0, D.bG)(
-                    [n3.A, n8.A],
+                    [n4.A, n8.A],
                     () => {
-                        let e = null != n ? n3.A.getChannel(n) : void 0;
+                        let e = null != n ? n4.A.getChannel(n) : void 0;
                         return null != e && n8.A.can(ty.xBc.USE_EMBEDDED_ACTIVITIES, e);
                     },
                     [n],
@@ -4451,7 +4451,7 @@ let ib = {
                 l = (0, D.bG)([tD.A], () => tD.A.getGuildId()),
                 n = n7.default.castGuildIdAsEveryoneGuildRoleId(l),
                 a = (0, n5.n)(),
-                r = (0, D.bG)([n3.A], () => (null != a ? n3.A.getChannel(a) : void 0), [a]),
+                r = (0, D.bG)([n4.A], () => (null != a ? n4.A.getChannel(a) : void 0), [a]),
                 d = (0, D.bG)([n8.A], () => null != r && n8.A.can(ty.xBc.MANAGE_ROLES, r), [r]),
                 o = (0, D.bG)([n9.A], () => (null == l ? ix : n9.A.getSortedRoles(l).filter((e) => e.id !== n)), [
                     l,
@@ -4481,7 +4481,7 @@ let ib = {
                 : (0, i.jsxs)(N.B, {
                       gap: 16,
                       children: [
-                          (0, i.jsx)(n4.Z, {
+                          (0, i.jsx)(n3.Z, {
                               selectionMode: "multiple",
                               label: C.intl.string(J.default.XXLbfv),
                               description: C.intl.string(J.default.XrpYIG),

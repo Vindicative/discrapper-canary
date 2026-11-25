@@ -2349,6 +2349,10 @@
       "2": {
         "enabled": true,
         "newTabExperience": "friends"
+      },
+      "3": {
+        "enabled": true,
+        "newTabExperience": "quickswitcher"
       }
     }
   },
@@ -3364,22 +3368,6 @@
   },
   {
     "name": "2026-09-desktop-voice-message-recording",
-    "kind": "user",
-    "defaultConfig": {
-      "enabled": false
-    },
-    "variations": {
-      "0": {
-        "enabled": false,
-        "variant": 0
-      },
-      "1": {
-        "enabled": true
-      }
-    }
-  },
-  {
-    "name": "2026-09-edit-profile-collectibles-ordering",
     "kind": "user",
     "defaultConfig": {
       "enabled": false
@@ -5864,6 +5852,18 @@
     }
   },
   {
+    "name": "2026-11-nitro-trials-brand-refresh",
+    "kind": "user",
+    "defaultConfig": false,
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": true
+    }
+  },
+  {
     "name": "2026-11-nitro-upload-badge",
     "kind": "user",
     "defaultConfig": {
@@ -6138,6 +6138,22 @@
     }
   },
   {
+    "name": "2026-11-reaction-menu-redesign",
+    "kind": "user",
+    "defaultConfig": {
+      "enabled": false
+    },
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": true
+      }
+    }
+  },
+  {
     "name": "2026-11-return-full-quest-status-in-decision",
     "kind": "user",
     "defaultConfig": {
@@ -6206,6 +6222,29 @@
       },
       "1": {
         "enabled": true
+      }
+    }
+  },
+  {
+    "name": "2026-11-shop-promotion-expiry-refetch",
+    "kind": "user",
+    "defaultConfig": null,
+    "variations": {
+      "0": {
+        "enabled": false,
+        "variant": 0
+      },
+      "1": {
+        "enabled": true,
+        "maxJitterMs": null
+      },
+      "2": {
+        "enabled": true,
+        "maxJitterMs": null
+      },
+      "3": {
+        "enabled": true,
+        "maxJitterMs": null
       }
     }
   },
