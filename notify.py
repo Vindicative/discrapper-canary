@@ -4,8 +4,7 @@ import re
 import urllib.parse
 import urllib.request
 
-REPO = os.environ["GITHUB_REPOSITORY"]
-UPSTREAM = "Wumpus-Central/discrapper-canary"
+UPSTREAM = os.environ.get("UPSTREAM", "Wumpus-Central/discrapper-canary")
 OLD = os.environ["OLD"]
 NEW = os.environ["NEW"]
 WEBHOOK = os.environ["WEBHOOK"]
@@ -19,6 +18,7 @@ AVATAR = "https://github.com/Wumpus-Central.png"
 
 
 def gh(url, accept="application/vnd.github+json"):
+    # hits the GitHub API and hands back the json
     req = urllib.request.Request(
         url,
         headers={
@@ -32,6 +32,7 @@ def gh(url, accept="application/vnd.github+json"):
 
 
 def post(payload):
+    # shoots stuff over to Discord
     req = urllib.request.Request(
         WEBHOOK,
         data=json.dumps(payload).encode(),
@@ -40,15 +41,8 @@ def post(payload):
     urllib.request.urlopen(req)
 
 
-def exists(url):
-    try:
-        gh(url)
-        return True
-    except Exception:
-        return False
-
-
 def find_build(commits):
+    # hunts for the build number in the commit messages
     for c in reversed(commits):
         m = re.search(r"\b(\d{5,7})\b", c["commit"]["message"])
         if m:
@@ -60,19 +54,37 @@ def block(text, lang="diff"):
     return f"```{lang}\n{text}\n```"
 
 
+def commits_text(commits):
+    # what the devs said in their commits, newest on top
+    lines, size = [], 0
+    ordered = list(reversed(commits))
+    for i, c in enumerate(ordered):
+        msg = c["commit"]["message"].split("\n")[0][:80]
+        who = (c.get("author") or {}).get("login") or c["commit"]["author"]["name"]
+        line = f"[`{c['sha'][:7]}`]({c['html_url']}) {msg} - **{who}**"
+        if size + len(line) > 900:
+            lines.append(f"...and {len(ordered) - i} more")
+            break
+        lines.append(line)
+        size += len(line) + 1
+    return "\n".join(lines) or "No commit messages, they left us on read"
+
+
 def load_strings(sha):
+    # grabs the strings file from upstream at a specific commit
     path = urllib.parse.quote(STRINGS_PATH)
-    url = f"https://api.github.com/repos/{REPO}/contents/{path}?ref={sha}"
+    url = f"https://api.github.com/repos/{UPSTREAM}/contents/{path}?ref={sha}"
     try:
         return gh(url, accept="application/vnd.github.raw+json")
     except Exception as e:
-        print(f"Could not load strings at {sha[:7]}: {e}")
+        print(f"Couldn't grab the strings at {sha[:7]}: {e}")
         return {}
 
 
 def send_strings(title, lines, build, state):
     if not lines:
         return
+    # chop it up so Discord doesn't throw a fit about the size limit
     chunks, chunk, size = [], [], 0
     for line in lines:
         line = line[:500].replace("```", "'''")
@@ -99,6 +111,7 @@ def send_strings(title, lines, build, state):
                 }
             ]
         }
+        # only ping the role once, on the first message, no one likes spam
         if ROLE_ID and not state["mentioned"]:
             payload["content"] = f"<@&{ROLE_ID}>"
             payload["allowed_mentions"] = {"roles": [ROLE_ID]}
@@ -106,9 +119,10 @@ def send_strings(title, lines, build, state):
         post(payload)
 
 
-cmp = gh(f"https://api.github.com/repos/{REPO}/compare/{OLD}...{NEW}")
+cmp = gh(f"https://api.github.com/repos/{UPSTREAM}/compare/{OLD}...{NEW}")
 files = cmp.get("files", [])
-build = find_build(cmp.get("commits", []))
+commits = cmp.get("commits", [])
+build = find_build(commits)
 
 added_lines = sum(f.get("additions", 0) for f in files)
 removed_lines = sum(f.get("deletions", 0) for f in files)
@@ -116,12 +130,7 @@ chunks_added = sum(1 for f in files if f["status"] == "added")
 chunks_removed = sum(1 for f in files if f["status"] == "removed")
 chunks_changed = len(files) - chunks_added - chunks_removed
 
-upstream_cmp = f"https://github.com/{UPSTREAM}/compare/{OLD}...{NEW}"
-diff_url = (
-    upstream_cmp
-    if exists(f"https://api.github.com/repos/{UPSTREAM}/compare/{OLD}...{NEW}")
-    else cmp.get("html_url", f"https://github.com/{UPSTREAM}/commits/main")
-)
+diff_url = cmp.get("html_url", f"https://github.com/{UPSTREAM}/commits/main")
 
 post(
     {
@@ -129,13 +138,14 @@ post(
             {
                 "color": AMBER,
                 "fields": [
-                    {"name": "Release", "value": block(build, ""), "inline": True},
-                    {"name": "Added Lines", "value": block(f"+ {added_lines}"), "inline": True},
-                    {"name": "Removed Lines", "value": block(f"- {removed_lines}"), "inline": True},
-                    {"name": "[++] Chunks", "value": block(f"+ {chunks_added}"), "inline": True},
-                    {"name": "[+-] Chunks", "value": block(f"* {chunks_changed}"), "inline": True},
-                    {"name": "[--] Chunks", "value": block(f"- {chunks_removed}"), "inline": True},
-                    {"name": "\u200b", "value": f"[View Differences]({diff_url})", "inline": False},
+                    {"name": "Build", "value": block(build, ""), "inline": True},
+                    {"name": "Lines Added", "value": block(f"+ {added_lines}"), "inline": True},
+                    {"name": "Lines Yeeted", "value": block(f"- {removed_lines}"), "inline": True},
+                    {"name": "[++] New Files", "value": block(f"+ {chunks_added}"), "inline": True},
+                    {"name": "[+-] Tweaked Files", "value": block(f"* {chunks_changed}"), "inline": True},
+                    {"name": "[--] Deleted Files", "value": block(f"- {chunks_removed}"), "inline": True},
+                    {"name": "💬 What The Devs Said", "value": commits_text(commits), "inline": False},
+                    {"name": "\u200b", "value": f"[Check out the diff]({diff_url})", "inline": False},
                 ],
             }
         ]
@@ -151,6 +161,6 @@ if STRINGS_PATH:
         if a[k] != b[k]:
             updated += [f"- {k}: {a[k]}", f"+ {k}: {b[k]}"]
     state = {"mentioned": False}
-    send_strings("(++) ADDED", added, build, state)
-    send_strings("(-+) UPDATED", updated, build, state)
-    send_strings("(--) REMOVED", removed, build, state)
+    send_strings("(++) FRESH STRINGS", added, build, state)
+    send_strings("(-+) TWEAKED STRINGS", updated, build, state)
+    send_strings("(--) YEETED STRINGS", removed, build, state)
