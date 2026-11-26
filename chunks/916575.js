@@ -1370,7 +1370,7 @@ let ne = function () {
         ],
     });
 };
-var nt = n(638495),
+var nt = n(102726),
     nn = n(871123),
     nl = n(439303),
     ni = n(44724),
@@ -1753,6 +1753,14 @@ let n$ = s.memo(function (e) {
                         }),
                         (0, r.jsx)("div", { className: nY.fm }),
                     ],
+                }),
+            null != t.attachmentFilenames &&
+                t.attachmentFilenames.length > 0 &&
+                (0, r.jsx)(Y.E, {
+                    variant: "body-sm/medium",
+                    color: "text-default",
+                    lineClamp: 3,
+                    children: t.attachmentFilenames.join(", "),
                 }),
             (0, r.jsxs)("div", {
                 className: nY.ov,

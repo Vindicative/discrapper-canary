@@ -111,12 +111,12 @@ let r = {
     TopEmojisDataManager: { actions: ["EMOJI_INTERACTION_INITIATED"], inlineRequire: () => n(347209).A },
     FrameLaunchTimingManager: {
         actions: ["FRAME_LAUNCH_START", "FRAME_LAUNCH", "FRAME_LAUNCH_FAIL", "FRAME_STOP", "LOGOUT", "CHANNEL_SELECT"],
-        inlineRequire: () => n(105790).Ay,
+        inlineRequire: () => n(967657).Ay,
         neverLoadBeforeConnectionOpen: !0,
     },
     EmbeddedAppShimManager: {
         actions: ["EMBEDDED_APP_SHIM_PIPE_OPEN"],
-        inlineRequire: () => n(391890).A,
+        inlineRequire: () => n(990588).A,
         hasStoreChangeListeners: !0,
     },
     EntityVersionsManager: {

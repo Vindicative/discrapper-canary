@@ -1,48 +1,49 @@
 var r = n(73153),
     s = n(587895),
-    i = n(975189),
-    o = n(276983),
+    o = n(975189),
+    i = n(276983),
     l = n(908276),
     a = n(260498),
-    c = n(677690),
-    d = n(664619),
-    u = n(722701),
-    p = n(811587),
-    h = n(28883);
-let _ = new Map();
-function f(e, t) {
-    (clearTimeout(_.get(e)),
-        _.delete(e),
+    c = n(612210),
+    d = n(677690),
+    u = n(664619),
+    p = n(722701),
+    h = n(811587),
+    _ = n(28883);
+let f = new Map();
+function g(e, t) {
+    (clearTimeout(f.get(e)),
+        f.delete(e),
         t?.status === "pending" &&
-            _.set(
+            f.set(
                 e,
-                setTimeout(() => g(e), 18e4),
+                setTimeout(() => E(e), 18e4),
             ),
         r.h.dispatch({ type: "CONJURE_PROJECT_SAFETY_RECHECK", projectId: e, recheck: t }));
 }
-function g(e) {
-    u.A.getSafetyRecheck(e)?.status === "pending" && f(e, { status: "unavailable" });
+function E(e) {
+    p.A.getSafetyRecheck(e)?.status === "pending" && g(e, { status: "unavailable" });
 }
-let E = new Map();
-function S(e, t) {
-    (r.h.dispatch({ type: "CONJURE_PROJECT_PUBLISH_APPROVAL", projectId: e, approvalUrl: null }), C(e, t));
-    let n = E.get(e);
-    null != n && (E.delete(e), clearTimeout(n.timeout), n.reject(Error(t)));
+let S = new Map();
+function m(e, t) {
+    (r.h.dispatch({ type: "CONJURE_PROJECT_PUBLISH_APPROVAL", projectId: e, approvalUrl: null }), k(e, t));
+    let n = S.get(e);
+    null != n && (S.delete(e), clearTimeout(n.timeout), n.reject(Error(t)));
 }
-let m = new Map();
-function y(e, t) {
-    let n = m.get(e);
-    null != n && (m.delete(e), clearTimeout(n.timeout), n.reject(Error(t)));
+let y = new Map();
+function T(e, t) {
+    let n = y.get(e);
+    null != n && (y.delete(e), clearTimeout(n.timeout), n.reject(Error(t)));
 }
-let T = new Set(p.n),
-    O = new Set(["activity", "automod", "widget", "bot"]);
-function b(e) {
-    return null != e && O.has(e) ? e : null;
+let O = new Set(h.n),
+    b = new Set(["activity", "automod", "widget", "bot"]);
+function N(e) {
+    return null != e && b.has(e) ? e : null;
 }
-let N = new Map();
-function C(e, t) {
-    let n = N.get(e);
-    null != n && (N.delete(e), clearTimeout(n.timeout), n.reject(Error(t)));
+let C = new Map();
+function k(e, t) {
+    let n = C.get(e);
+    null != n && (C.delete(e), clearTimeout(n.timeout), n.reject(Error(t)));
 }
 n.d(
     t,
@@ -50,65 +51,65 @@ n.d(
     {
         $C: function (e) {
             return new Promise((t, n) => {
-                let r = (0, i.KY)(e);
+                let r = (0, o.KY)(e);
                 if (null == r) return void n(Error("Not connected"));
-                y(e, "Superseded by a newer draft request");
+                T(e, "Superseded by a newer draft request");
                 let s = `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-                    o = setTimeout(() => {
-                        y(e, "Draft timed out");
+                    i = setTimeout(() => {
+                        T(e, "Draft timed out");
                     }, 45e3);
-                m.set(e, { resolve: t, reject: n, timeout: o, nonce: s });
+                y.set(e, { resolve: t, reject: n, timeout: i, nonce: s });
                 try {
                     r.sendDraftPatchNotes(s);
                 } catch (t) {
-                    (m.delete(e), clearTimeout(o), n(t instanceof Error ? t : Error("draft send failed")));
+                    (y.delete(e), clearTimeout(i), n(t instanceof Error ? t : Error("draft send failed")));
                 }
             });
         },
         $N: function (e) {
-            u.A.getSafetyRecheck(e)?.status === "cleared" && f(e, null);
+            p.A.getSafetyRecheck(e)?.status === "cleared" && g(e, null);
         },
-        BC: y,
+        BC: T,
         BG: function (e, t, n) {
             r.h.dispatch({ type: "CONJURE_PROJECT_PATCH_NOTES_SENT", projectId: e, sent: t });
             try {
-                let r = (0, i.KY)(e);
+                let r = (0, o.KY)(e);
                 if (null == r) throw Error("Not connected");
                 r.sendPatchNotesSent(t, n);
             } catch (t) {
                 console.warn("[conjure] could not record sent patch notes", e, t);
             }
         },
-        Mz: S,
-        Nc: g,
+        Mz: m,
+        Nc: E,
         TV: function (e, t) {
-            let n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+            let n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                 s = !1;
-            return new Promise((o, l) => {
-                let a = (0, i.KY)(e);
+            return new Promise((i, l) => {
+                let a = (0, o.KY)(e);
                 if (null == a) return void l(Error("Not connected"));
-                if (E.has(e)) return void l(Error("Publish already in flight"));
+                if (S.has(e)) return void l(Error("Publish already in flight"));
                 let c = setTimeout(() => {
-                    S(e, "Publish timed out");
+                    m(e, "Publish timed out");
                 }, 9e5);
-                (E.set(e, { resolve: o, reject: l, timeout: c }),
+                (S.set(e, { resolve: i, reject: l, timeout: c }),
                     (s = !0),
                     r.h.dispatch({ type: "CONJURE_PROJECT_PUBLISH_START", projectId: e }));
                 try {
                     a.sendPublish(t, n);
                 } catch (t) {
-                    (E.delete(e), clearTimeout(c), l(t instanceof Error ? t : Error("publish send failed")));
+                    (S.delete(e), clearTimeout(c), l(t instanceof Error ? t : Error("publish send failed")));
                 }
             })
                 .catch((t) => {
-                    throw ((0, d.Is)(e, t instanceof Error ? t.message : "publish failed", !1), t);
+                    throw ((0, u.Is)(e, t instanceof Error ? t.message : "publish failed", !1), t);
                 })
                 .finally(() => {
                     s && r.h.dispatch({ type: "CONJURE_PROJECT_PUBLISH_SETTLE", projectId: e });
                 });
         },
         dx: function (e) {
-            (0, i.KY)(e)?.sendPreparePublish();
+            (0, o.KY)(e)?.sendPreparePublish();
         },
         qy: {
             publish_notice(e, t) {
@@ -144,13 +145,13 @@ n.d(
                                 return null;
                         }
                     })(e);
-                null != r && f(n, r);
+                null != r && g(n, r);
             },
             publish_options(e, t) {
                 let { projectId: n } = t,
-                    r = N.get(n);
+                    r = C.get(n);
                 if (null == r || r.nonce !== e.nonce) return;
-                (N.delete(n), clearTimeout(r.timeout));
+                (C.delete(n), clearTimeout(r.timeout));
                 let s = e.options;
                 !0 !== e.ok ||
                 null == s ||
@@ -181,8 +182,8 @@ n.d(
             },
             async publish_approval_required(e, t) {
                 let { projectId: s } = t;
-                if ((0, h.d)(e.approval_url, e.approval_kind)) {
-                    if (u.A.getPublishApprovalUrl(s) === e.approval_url) return;
+                if ((0, _.d)(e.approval_url, e.approval_kind)) {
+                    if (p.A.getPublishApprovalUrl(s) === e.approval_url) return;
                     r.h.dispatch({
                         type: "CONJURE_PROJECT_PUBLISH_APPROVAL",
                         projectId: s,
@@ -196,7 +197,7 @@ n.d(
             },
             publish_progress(e, t) {
                 let { projectId: n } = t;
-                if (!T.has(e.stage)) return;
+                if (!O.has(e.stage)) return;
                 let s = Number.isFinite(e.stage_elapsed_ms) ? Math.max(0, e.stage_elapsed_ms) : 0;
                 ("approval" !== e.stage &&
                     r.h.dispatch({ type: "CONJURE_PROJECT_PUBLISH_APPROVAL", projectId: n, approvalUrl: null }),
@@ -215,7 +216,7 @@ n.d(
                         turnId: e.turn_id,
                         patch: {
                             publishCta: {
-                                surface: b(e.publish_cta.surface),
+                                surface: N(e.publish_cta.surface),
                                 reason: "new_ui" === e.publish_cta.reason ? "new_ui" : "first_publish",
                             },
                         },
@@ -237,7 +238,7 @@ n.d(
                               : !0 === n.has_unpublished_changes
                                 ? "live_outdated"
                                 : "live_current",
-                    surface: b(e.surface),
+                    surface: N(e.surface),
                     previewAppChannels: Array.isArray(e.preview_app_channels)
                         ? e.preview_app_channels.filter((e) => "string" == typeof e)
                         : [],
@@ -245,7 +246,7 @@ n.d(
                         ? e.new_app_channels.filter((e) => "string" == typeof e)
                         : [],
                     previewDevicePermissions: Array.isArray(e.preview_device_permissions)
-                        ? e.preview_device_permissions.filter(o.de)
+                        ? e.preview_device_permissions.filter(i.de)
                         : [],
                     publishedRevision: "number" == typeof e.published_revision ? e.published_revision : null,
                     publishedAt: "string" == typeof e.published_at ? e.published_at : null,
@@ -269,20 +270,21 @@ n.d(
                         : void 0,
                     newUiUnpublished: !0 === e.new_ui_unpublished,
                     safetyHold: !0 === e.safety_hold,
-                    voiceChannelPin: (0, c.O_)(e.voice_channel_pin),
+                    voiceChannelPin: (0, d.O_)(e.voice_channel_pin),
+                    views: (0, c.s)(e),
                 });
             },
             publish_result(e, t) {
                 let { projectId: n } = t;
                 r.h.dispatch({ type: "CONJURE_PROJECT_PUBLISH_APPROVAL", projectId: n, approvalUrl: null });
-                let i = E.get(n);
-                (E.delete(n),
-                    null != i && (clearTimeout(i.timeout), i.resolve(e)),
+                let o = S.get(n);
+                (S.delete(n),
+                    null != o && (clearTimeout(o.timeout), o.resolve(e)),
                     !0 !== e.ok
-                        ? (0, d.Is)(n, e.error ?? "publish_result not ok", !1)
+                        ? (0, u.Is)(n, e.error ?? "publish_result not ok", !1)
                         : (function (e) {
                               let t = a.Ay.getProject(e),
-                                  n = u.A.getPublishStatus(e)?.previewDevicePermissions;
+                                  n = p.A.getPublishStatus(e)?.previewDevicePermissions;
                               if (t?.install_scope !== "user" || "" === t.application_id || null == n) return;
                               let r = t.application_id;
                               (0, l.Ay)({
@@ -295,34 +297,34 @@ n.d(
             },
             patch_notes_draft(e, t) {
                 let { projectId: n } = t,
-                    r = m.get(n);
-                null != r && r.nonce === e.nonce && (m.delete(n), clearTimeout(r.timeout), r.resolve(e));
+                    r = y.get(n);
+                null != r && r.nonce === e.nonce && (y.delete(n), clearTimeout(r.timeout), r.resolve(e));
             },
         },
         xQ: function (e) {
             return new Promise((t, n) => {
-                let r = (0, i.KY)(e);
+                let r = (0, o.KY)(e);
                 if (null == r) return n(Error("Not connected"));
                 if (!r.supportsPublishOptions)
                     return void t({
                         destinations: [{ id: "conjuring", label: "Conjuring" }],
                         selected_destination_id: "conjuring",
                     });
-                C(e, "Superseded by a newer publish request");
+                k(e, "Superseded by a newer publish request");
                 let s = `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-                    o = setTimeout(() => C(e, "Could not load publish destinations. Try again."), 15e3);
-                N.set(e, { resolve: t, reject: n, timeout: o, nonce: s });
+                    i = setTimeout(() => k(e, "Could not load publish destinations. Try again."), 15e3);
+                C.set(e, { resolve: t, reject: n, timeout: i, nonce: s });
                 try {
                     r.sendPublishOptions(s);
                 } catch {
-                    C(e, "Could not load publish destinations. Try again.");
+                    k(e, "Could not load publish destinations. Try again.");
                 }
             });
         },
         zu: function (e) {
-            if (u.A.getSafetyRecheck(e)?.status === "pending") return;
-            let t = (0, i.b4)(e, "safety recheck", (e) => e.sendSafetyRecheck());
-            f(e, t ? { status: "pending" } : { status: "unavailable" });
+            if (p.A.getSafetyRecheck(e)?.status === "pending") return;
+            let t = (0, o.b4)(e, "safety recheck", (e) => e.sendSafetyRecheck());
+            g(e, t ? { status: "pending" } : { status: "unavailable" });
         },
     },
 );

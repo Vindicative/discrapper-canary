@@ -3,7 +3,7 @@ var l = n(477900),
     i = n(598047),
     a = n(504054);
 let s = ["left", "middle", "right"];
-function o(e) {
+function u(e) {
     return !!e.altKey | (2 * !!e.ctrlKey) | (4 * !!e.metaKey) | (8 * !!e.shiftKey);
 }
 n.d(
@@ -14,7 +14,7 @@ n.d(
             let {
                     projectId: t,
                     sessionId: n,
-                    fps: u,
+                    fps: o,
                     interactive: c = !1,
                     paused: d = !1,
                     drawWidth: f,
@@ -27,7 +27,7 @@ n.d(
                 v = r.useRef(null),
                 [b, j] = r.useState(!1),
                 y = (0, i.A)(),
-                k = r.useCallback(
+                w = r.useCallback(
                     async (e) => {
                         let l = await createImageBitmap(new Blob([e.jpeg], { type: "image/jpeg" }));
                         try {
@@ -45,14 +45,14 @@ n.d(
                     },
                     [t, n],
                 ),
-                w = window.devicePixelRatio > 0 ? window.devicePixelRatio : 1,
-                A = null == f ? 0 : Math.round(f * Math.min(w, 2)),
-                S = (0, a.KK)(t, n, { fps: u, onFrame: k, enabled: !d && y, width: A }),
+                k = window.devicePixelRatio > 0 ? window.devicePixelRatio : 1,
+                A = null == f ? 0 : Math.round(f * Math.min(k, 2)),
+                S = (0, a.KK)(t, n, { fps: o, onFrame: w, enabled: !d && y, width: A }),
                 C = (0, a.AV)(t, n),
-                N = r.useRef(C);
+                I = r.useRef(C);
             (r.useEffect(() => {
-                if (N.current === C) return;
-                ((N.current = C), (x.current = null), j(!1));
+                if (I.current === C) return;
+                ((I.current = C), (x.current = null), j(!1));
                 let e = p.current;
                 e?.getContext("2d")?.clearRect(0, 0, e.width, e.height);
             }, [C]),
@@ -62,7 +62,7 @@ n.d(
                 r.useEffect(() => {
                     c && p.current?.focus();
                 }, [c]));
-            let I = r.useRef(new Map());
+            let N = r.useRef(new Map());
             function E(e) {
                 let t = e.currentTarget,
                     n = t.getBoundingClientRect(),
@@ -88,7 +88,7 @@ n.d(
                                     null != e &&
                                         (0, a.ZL)(t, n, { type: "input_mouse", eventType: "mouseMoved", ...e }));
                             }),
-                            (v.current = { ...e, modifiers: o(l) }));
+                            (v.current = { ...e, modifiers: u(l) }));
                         return;
                     }
                     let r = s[l.button];
@@ -102,7 +102,7 @@ n.d(
                             ...i,
                             button: r,
                             clickCount: l.detail > 0 ? l.detail : 1,
-                            modifiers: o(l),
+                            modifiers: u(l),
                         }));
                 };
             }
@@ -110,9 +110,9 @@ n.d(
                 return (l) => {
                     if (!c || "Escape" === l.key) return;
                     l.preventDefault();
-                    let r = l.getModifierState("AltGraph") ? -4 & o(l) : o(l);
+                    let r = l.getModifierState("AltGraph") ? -4 & u(l) : u(l);
                     ((0, a.ZL)(t, n, { type: "input_keyboard", eventType: e, key: l.key, code: l.code, modifiers: r }),
-                        "keyDown" === e ? I.current.set(l.code, l.key) : I.current.delete(l.code));
+                        "keyDown" === e ? N.current.set(l.code, l.key) : N.current.delete(l.code));
                     let i = "Enter" === l.key ? "\r" : l.key;
                     "keyDown" === e &&
                         1 === i.length &&
@@ -143,15 +143,15 @@ n.d(
                             ...E(e),
                             deltaX: e.deltaX,
                             deltaY: e.deltaY,
-                            modifiers: o(e),
+                            modifiers: u(e),
                         });
                 },
                 onKeyDown: M("keyDown"),
                 onKeyUp: M("keyUp"),
                 onBlur: function () {
-                    for (let [e, l] of I.current)
+                    for (let [e, l] of N.current)
                         (0, a.ZL)(t, n, { type: "input_keyboard", eventType: "keyUp", key: l, code: e, modifiers: 0 });
-                    I.current.clear();
+                    N.current.clear();
                 },
             });
         },

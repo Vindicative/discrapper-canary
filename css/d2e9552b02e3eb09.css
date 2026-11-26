@@ -1,0 +1,275 @@
+.backdrop_hnSB1X {
+    background: var(--background-brand);
+    border-radius: var(--radius-md);
+    padding: var(--space-16)
+}
+
+.label_hnSB1X {
+    color: var(--text-overlay-light)
+}
+
+.inputField_vxox-C {
+    align-items: center;
+    display: flex;
+    height: var(--control-input-height-md);
+    justify-content: space-between;
+    max-width: 180px;
+    padding-left: var(--space-8);
+    padding-right: var(--space-4)
+}
+
+.inputFieldMinute_vxox-C {
+    max-width: 320px
+}
+
+.inputFieldRange_vxox-C {
+    max-width: 360px
+}
+
+.inputFieldRangeMinute_vxox-C {
+    max-width: 680px
+}
+
+.inputFieldFullWidth_vxox-C {
+    max-width: unset
+}
+
+.picker_vxox-C {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    padding-bottom: var(--space-4);
+    padding-top: var(--space-4);
+    width: 100%
+}
+
+.placeholder_vxox-C {
+    color: var(--text-subtle)
+}
+
+.inputGroup_vxox-C {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%
+}
+
+.segment_vxox-C {
+    border-radius: var(--radius-xs);
+    padding: 0 2px
+}
+
+.segment_vxox-C:focus {
+    background-color: var(--opacity-blurple-8);
+    color: var(--text-strong);
+    outline: 1px solid var(--border-focus)
+}
+
+.separator_vxox-C {
+    color: var(--text-muted);
+    padding: 0 var(--space-4)
+}
+
+.calendarButton_vxox-C {
+    align-items: center;
+    align-self: flex-end;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    aspect-ratio: 1/1;
+    background: transparent;
+    border-radius: var(--radius-xs);
+    color: var(--control-icon-only-icon-default);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0 0 0 auto;
+    padding: 0;
+    transition: all .15s ease
+}
+
+.calendarButton_vxox-C[data-hovered] {
+    background-color: var(--control-icon-only-background-hover);
+    border-color: var(--control-icon-only-border-hover);
+    color: var(--control-icon-only-icon-hover)
+}
+
+.calendarButton_vxox-C[data-pressed] {
+    background-color: var(--control-icon-only-background-active);
+    border-color: var(--control-icon-only-border-active);
+    color: var(--control-icon-only-icon-active)
+}
+
+.calendarButton_vxox-C[data-focus-visible] {
+    outline: 2px solid var(--border-focus);
+    outline-offset: -1px
+}
+
+.dialog_vxox-C,
+.popover_vxox-C {
+    z-index: 10
+}
+
+.dialog_vxox-C {
+    background-color: var(--background-surface-higher);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px 0 var(--opacity-black-16);
+    box-sizing: border-box;
+    max-height: 100%;
+    overflow: auto !important
+}
+
+.enable-forced-colors .inputGroup_vxox-C {
+    background-color: Field;
+    border-color: ButtonBorder
+}
+
+.enable-forced-colors .inputGroup_vxox-C.error_vxox-C {
+    border-color: Mark
+}
+
+.enable-forced-colors .segment_vxox-C {
+    color: FieldText
+}
+
+.enable-forced-colors .segment_vxox-C:focus {
+    background-color: Highlight;
+    color: HighlightText
+}
+
+.enable-forced-colors .separator_vxox-C {
+    color: FieldText
+}
+
+.enable-forced-colors .calendarButton_vxox-C {
+    color: ButtonText
+}
+
+.enable-forced-colors .calendarButton_vxox-C:hover {
+    background-color: ButtonFace
+}
+
+.popout_FZwK71 {
+    align-items: stretch;
+    background: var(--background-surface-high);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-high);
+    display: flex;
+    overflow: hidden;
+    padding: var(--space-4)
+}
+
+.full-motion .popout_FZwK71 {
+    transition: width .22s ease
+}
+
+.presetColumn_FZwK71 {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding: var(--space-8);
+    width: 220px
+}
+
+.sectionLabel_FZwK71 {
+    letter-spacing: .04em;
+    padding: 0 var(--space-8);
+    text-transform: none
+}
+
+.presetList_FZwK71 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4)
+}
+
+.presetItem_FZwK71 {
+    align-items: center;
+    border-radius: var(--radius-sm);
+    color: var(--text-default);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-8) var(--space-12);
+    transition: background-color .12s ease, color .12s ease
+}
+
+.presetItem_FZwK71:hover {
+    background-color: var(--background-mod-subtle)
+}
+
+.presetItemActive_FZwK71,
+.presetItemActive_FZwK71:hover {
+    background-color: var(--background-mod-strong);
+    color: var(--text-default)
+}
+
+.customRow_FZwK71 {
+    border-top: 1px solid var(--border-subtle);
+    margin-top: var(--space-4);
+    padding-top: var(--space-12)
+}
+
+.customChevron_FZwK71 {
+    font-size: 10px;
+    line-height: 1;
+    margin-inline-start: var(--space-8)
+}
+
+.customPanel_FZwK71 {
+    flex: 0 0 auto;
+    opacity: 0;
+    width: 0
+}
+
+.full-motion .customPanel_FZwK71 {
+    transition: width .22s ease, opacity .18s ease
+}
+
+.popoutExpanded_FZwK71 .customPanel_FZwK71 {
+    opacity: 1;
+    width: 280px
+}
+
+.customInner_FZwK71 {
+    box-sizing: border-box;
+    gap: var(--space-12);
+    padding: var(--space-8) var(--space-12);
+    width: 280px
+}
+
+.customInner_FZwK71,
+.fieldBlock_FZwK71 {
+    display: flex;
+    flex-direction: column
+}
+
+.fieldBlock_FZwK71 {
+    gap: var(--space-4)
+}
+
+.fieldLabel_FZwK71 {
+    letter-spacing: .04em;
+    text-transform: none
+}
+
+.fieldRow_FZwK71 {
+    align-items: center;
+    display: flex;
+    gap: var(--space-4)
+}
+
+.fieldRow_FZwK71>:first-child {
+    flex: 0 0 180px
+}
+
+.customFooter_FZwK71 {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--space-4) var(--space-12) var(--space-8)
+}
+
+/*# sourceMappingURL=d2e9552b02e3eb09.css.map*/

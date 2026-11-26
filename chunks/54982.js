@@ -605,8 +605,8 @@ function e5(e) {
     });
 }
 var e7 = n(633965),
-    e8 = n(857071),
-    e4 = n(851109),
+    e4 = n(857071),
+    e8 = n(851109),
     e9 = n(72314),
     te = n(543897),
     tt = n(696451),
@@ -688,7 +688,7 @@ var tN = n(628274),
     tb = n(47167),
     tv = n(598104),
     tP = n(976860),
-    tM = n(442325),
+    tM = n(114129),
     tU = n(297334),
     tw = n(812020),
     tG = n(907459),
@@ -905,7 +905,7 @@ class tK extends r.PureComponent {
     }
     handleSelectChannel = () => {
         let { channel: e } = this.props;
-        (0, tP.pX)(eV.BVt.CHANNEL(eV.ME, e.id));
+        (0, tM.KV)(e.id, "guilds_bar") || (0, tP.pX)(eV.BVt.CHANNEL(eV.ME, e.id));
     };
     handleContextMenu = (e) => {
         let { channel: t } = this.props,
@@ -914,7 +914,7 @@ class tK extends r.PureComponent {
             ? (0, tL.L3)(e, async () => {
                   let { default: e } = await Promise.all([
                       n.e(339715),
-                      n.e(924697),
+                      n.e(790484),
                       n.e(24312),
                       n.e(622936),
                       n.e(216947),
@@ -933,18 +933,18 @@ class tK extends r.PureComponent {
                       n.e(391763),
                       n.e(189673),
                       n.e(571210),
+                      n.e(491001),
                       n.e(576432),
                       n.e(797558),
-                      n.e(491001),
-                      n.e(451162),
-                      n.e(229787),
                       n.e(142867),
                       n.e(88342),
+                      n.e(451162),
                       n.e(96539),
-                      n.e(576665),
+                      n.e(229787),
                       n.e(495786),
                       n.e(717479),
                       n.e(311802),
+                      n.e(576665),
                       n.e(698965),
                       n.e(382563),
                       n.e(235313),
@@ -957,9 +957,9 @@ class tK extends r.PureComponent {
                       n.e(552172),
                       n.e(529422),
                       n.e(823427),
-                      n.e(307059),
                       n.e(309291),
                       n.e(150773),
+                      n.e(307059),
                       n.e(838056),
                       n.e(508829),
                       n.e(935483),
@@ -1010,11 +1010,9 @@ class tK extends r.PureComponent {
             } = this.props,
             { hovered: E, animating: A } = this.state,
             f = e.isMultiUserDM() && null == e.icon,
-            h = () => {
-                let a = tM.A.isEnabled();
-                return (0, i.jsx)(el.j, {
-                    to: a ? void 0 : eV.BVt.CHANNEL(eV.ME, e.id),
-                    onClick: a ? this.handleSelectChannel : void 0,
+            h = () =>
+                (0, i.jsx)(el.j, {
+                    onClick: this.handleSelectChannel,
                     onMouseEnter: () => this.setState({ hovered: !0 }),
                     onMouseLeave: () => this.setState({ hovered: !1 }),
                     selected: n || E,
@@ -1040,7 +1038,6 @@ class tK extends r.PureComponent {
                         : void 0,
                     ..._,
                 });
-            };
         return (0, i.jsx)(Z.animated.div, {
             style: this.getAnimatedStyle(),
             children: (0, i.jsxs)(M.c, {
@@ -1159,8 +1156,8 @@ var t0 = n(245604),
     t6 = n(772366),
     t5 = n(728321),
     t7 = n(260509),
-    t8 = n(531053),
-    t4 = n(819638),
+    t4 = n(531053),
+    t8 = n(819638),
     t9 = n(260727);
 let ne = { origin: { x: -16, y: 0 }, targetWidth: 48, targetHeight: 48, offset: { x: 0, y: 0 } };
 function nt(e) {
@@ -1179,7 +1176,7 @@ function ni(e) {
         a = (0, _.yK)([tn.A], () => tn.A.getGuildsArray()),
         s = (0, _.bG)([ek.default], () => ek.default.getCurrentUser()),
         l = r.useMemo(() => a.some((e) => (0, t7.bM)(e, s)), [a, s]),
-        o = (0, y.re)((e) => (0, y.fD)(e, t4.fc)),
+        o = (0, y.re)((e) => (0, y.fD)(e, t8.fc)),
         { analyticsLocations: d } = (0, O.Ay)(),
         c = a.length >= 100 && !(0, t3.Om)(s);
     function u(e) {
@@ -1204,7 +1201,7 @@ function ni(e) {
                     ? (0, i.jsx)(G, { ...E, onClick: () => u(!1), tooltip: j.intl.string(j.t.l5WIbf) })
                     : (0, i.jsx)(nn, { ...E, onClick: u }),
                 null != n &&
-                    (0, i.jsx)(t8.Ay, { name: j.intl.string(j.t["45xjM5"]), targetNode: n, below: !0, noCombine: !0 }),
+                    (0, i.jsx)(t4.Ay, { name: j.intl.string(j.t["45xjM5"]), targetNode: n, below: !0, noCombine: !0 }),
             ],
         }),
     });
@@ -1511,7 +1508,7 @@ function n3(e) {
 var n6 = n(36412),
     n5 = n(283001),
     n7 = n(354583);
-let n8 = r.memo(function (e) {
+let n4 = r.memo(function (e) {
     let t,
         a,
         s,
@@ -1584,7 +1581,7 @@ let n8 = r.memo(function (e) {
         onContextMenu: M,
     });
 });
-var n4 = n(113494),
+var n8 = n(113494),
     n9 = n(947832),
     ie = n(821124),
     it = n(212455);
@@ -2075,7 +2072,7 @@ function iV(e, t) {
             n.e(747802),
             n.e(716541),
             n.e(736663),
-            n.e(846900),
+            n.e(361243),
             n.e(419121),
             n.e(489020),
             n.e(919789),
@@ -2136,8 +2133,8 @@ function iV(e, t) {
             n.e(684231),
             n.e(570690),
             n.e(886631),
-            n.e(435860),
-            n.e(426782),
+            n.e(74336),
+            n.e(978898),
             n.e(406322),
             n.e(942571),
             n.e(464759),
@@ -2151,8 +2148,7 @@ function iV(e, t) {
             n.e(816348),
             n.e(165291),
             n.e(109383),
-            n.e(818291),
-            n.e(243794),
+            n.e(957643),
             n.e(301815),
             n.e(10985),
             n.e(171206),
@@ -2170,7 +2166,6 @@ function iV(e, t) {
             n.e(885251),
             n.e(857871),
             n.e(529366),
-            n.e(990185),
             n.e(752924),
             n.e(849162),
             n.e(660201),
@@ -2190,8 +2185,7 @@ function iV(e, t) {
             n.e(440636),
             n.e(568960),
             n.e(459257),
-            n.e(924697),
-            n.e(549009),
+            n.e(790484),
             n.e(339715),
             n.e(985301),
             n.e(981059),
@@ -2437,13 +2431,11 @@ function iV(e, t) {
             n.e(564850),
             n.e(941040),
             n.e(124791),
-            n.e(35771),
             n.e(648344),
             n.e(170104),
             n.e(491793),
             n.e(889638),
             n.e(553984),
-            n.e(102698),
             n.e(902564),
             n.e(884601),
             n.e(782969),
@@ -2515,12 +2507,12 @@ function iV(e, t) {
             n.e(490010),
             n.e(140667),
             n.e(258398),
-            n.e(144472),
             n.e(916758),
             n.e(660249),
             n.e(440142),
             n.e(652212),
             n.e(713567),
+            n.e(144472),
             n.e(612287),
             n.e(720064),
             n.e(733416),
@@ -2543,14 +2535,13 @@ function iV(e, t) {
             n.e(589916),
             n.e(947802),
             n.e(695170),
-            n.e(495861),
             n.e(309004),
-            n.e(781202),
             n.e(335559),
             n.e(848625),
             n.e(458273),
             n.e(606949),
             n.e(968763),
+            n.e(495861),
             n.e(163069),
             n.e(883952),
             n.e(26001),
@@ -2585,10 +2576,10 @@ function iV(e, t) {
             n.e(269786),
             n.e(113945),
             n.e(65393),
-            n.e(343116),
             n.e(368530),
             n.e(275859),
             n.e(680029),
+            n.e(343116),
             n.e(583518),
             n.e(978046),
             n.e(807476),
@@ -2617,6 +2608,7 @@ function iV(e, t) {
             n.e(50342),
             n.e(119454),
             n.e(10622),
+            n.e(838336),
             n.e(409391),
             n.e(645830),
             n.e(134504),
@@ -2626,7 +2618,6 @@ function iV(e, t) {
             n.e(346313),
             n.e(553203),
             n.e(218489),
-            n.e(838336),
             n.e(115368),
             n.e(343233),
             n.e(248985),
@@ -2649,7 +2640,7 @@ function iV(e, t) {
             n.e(647011),
             n.e(205896),
             n.e(269178),
-            n.e(553584),
+            n.e(331203),
             n.e(157513),
             n.e(466913),
             n.e(983947),
@@ -2914,7 +2905,7 @@ let iH = r.memo(function (e) {
                   }),
               }),
         eh = $ || Y ? eE : eA,
-        eI = (0, i.jsx)(t8.g4, { children: (0, i.jsx)(iG.A, {}) }),
+        eI = (0, i.jsx)(t4.g4, { children: (0, i.jsx)(iG.A, {}) }),
         ep = q
             ? (0, i.jsx)(Z.animated.div, {
                   ref: S
@@ -2958,7 +2949,7 @@ let iH = r.memo(function (e) {
                 shouldShowNotificationContext: !I && (E || m > 0),
                 children: k ? eI : ep,
             }),
-            S ? (0, i.jsx)(t8.Ay, { name: d.name, targetNode: t, onDragOverChanged: er }) : null,
+            S ? (0, i.jsx)(t4.Ay, { name: d.name, targetNode: t, onDragOverChanged: er }) : null,
         ],
     });
 });
@@ -2994,7 +2985,7 @@ let iW = r.memo(function (e) {
                       : m
                         ? (0, i.jsx)("div", {
                               className: ij.j,
-                              children: (0, i.jsx)(n4.PauseIcon, {
+                              children: (0, i.jsx)(n8.PauseIcon, {
                                   size: "custom",
                                   color: "currentColor",
                                   className: ij.v,
@@ -3191,7 +3182,7 @@ function i5(e) {
         : (0, i.jsx)(iH, { guildNode: n, guild: a, animatable: s, selected: l, draggable: !1, mediaState: o });
 }
 var i7 = n(987566);
-let i8 = (0, ei.Fe)({
+let i4 = (0, ei.Fe)({
         createPromise: () =>
             Promise.all([
                 n.e(185830),
@@ -3240,7 +3231,7 @@ let i8 = (0, ei.Fe)({
         webpackId: 489555,
         name: "NotificationsInboxButton",
     }),
-    i4 = (0, tr.uF)() ? 4 : 12 * !(0, tr.cX)();
+    i8 = (0, tr.uF)() ? 4 : 12 * !(0, tr.cX)();
 function i9(e, t, n) {
     let i = e + t,
         r = 2 + t;
@@ -3249,7 +3240,7 @@ function i9(e, t, n) {
         iconTotalSize: i,
         badgeVisibleBuffer: i - 16,
         separatorSize: r,
-        heightBeforeGuilds: i4 + r + n * i,
+        heightBeforeGuilds: i8 + r + n * i,
         bottomInset: 16,
     };
 }
@@ -3374,12 +3365,12 @@ function rn(e) {
         l = (0, i.jsx)(ea, { shown: a }),
         o = (0, _.yK)([tn.A, tt.Ay], () => tn.A.getGuildIds().filter((e) => tt.Ay.isCurrentUserGuest(e))),
         d = r.concat(o),
-        { entrypoint: c } = (0, e4.X8)({ location: "GuildsBar" });
+        { entrypoint: c } = (0, e8.X8)({ location: "GuildsBar" });
     return (0, i.jsxs)(i.Fragment, {
         children: [
             (0, i.jsx)(nV, {}),
             s ? null : l,
-            c === e4.RK.SERVER_RAIL_TOP && (0, i.jsx)(i8, {}),
+            c === e8.RK.SERVER_RAIL_TOP && (0, i.jsx)(i4, {}),
             s ? (0, i.jsx)(ez, {}) : null,
             s ? l : null,
             !t && (0, i.jsx)(tX, {}),
@@ -3426,7 +3417,7 @@ function rr(e) {
             let e = ti.Ay.getGuildsTree();
             return [e, e.version];
         }),
-        L = (0, _.bG)([e8.A], () => e8.A.lurkingGuildIds()),
+        L = (0, _.bG)([e4.A], () => e4.A.lurkingGuildIds()),
         y = r.useMemo(() => (E ? [] : L), [L, E]),
         D = (0, _.bG)([R.A], () => R.A.isFullscreenInContext()),
         { isSorting: b, startSorting: v, stopSorting: P } = (0, ta.A)(),
@@ -3450,8 +3441,8 @@ function rr(e) {
             }, [n, o]),
             n && (l || a)),
         { pathname: Z } = (0, d.zy)(),
-        { entrypoint: ee } = (0, e4.X8)({ location: "GuildsBar" }),
-        et = +!!K + +!!$ + +(ee === e4.RK.SERVER_RAIL_TOP),
+        { entrypoint: ee } = (0, e8.X8)({ location: "GuildsBar" }),
+        et = +!!K + +!!$ + +(ee === e8.RK.SERVER_RAIL_TOP),
         en = r.useMemo(() => {
             let e = i9(W, Y, 0);
             return new rt(
@@ -3547,7 +3538,7 @@ function rr(e) {
                 switch (t.type) {
                     case ts.PJ.FOLDER:
                         return (0, i.jsx)(
-                            n8,
+                            n4,
                             {
                                 folderNode: t,
                                 treeVersion: N.version,
@@ -3584,7 +3575,7 @@ function rr(e) {
             [v, P, b, en.setNodeRef, N.version],
         ),
         e_ = (0, i.jsx)(nf, { ref: ea, selected: er, className: i7.ai, onClick: eo }),
-        eA = ee === e4.RK.SERVER_RAIL_BOTTOM;
+        eA = ee === e8.RK.SERVER_RAIL_BOTTOM;
     return (0, i.jsx)(O.f5, {
         value: ei,
         children: (0, i.jsx)(m.N, {
@@ -3632,7 +3623,7 @@ function rr(e) {
                                     (0, i.jsxs)("div", {
                                         children: [
                                             (0, i.jsx)(nj, { fullWidth: !0 }),
-                                            (0, i.jsx)("div", { className: i7.JU, children: (0, i.jsx)(i8, {}) }),
+                                            (0, i.jsx)("div", { className: i7.JU, children: (0, i.jsx)(i4, {}) }),
                                         ],
                                     }),
                             ],

@@ -239,7 +239,7 @@ class B extends y.G {
             { no: 14, name: "user_has_flag", kind: "message", oneof: "filter", T: () => eZ },
             { no: 15, name: "unit_id_in_range_by_hash", kind: "message", oneof: "filter", T: () => e1 },
             { no: 16, name: "client_release_channel", kind: "message", oneof: "filter", T: () => e3 },
-            { no: 17, name: "always", kind: "message", oneof: "filter", T: () => e7 },
+            { no: 17, name: "always", kind: "message", oneof: "filter", T: () => e4 },
             { no: 18, name: "client_system_locale", kind: "message", oneof: "filter", T: () => Z },
             { no: 19, name: "unit_id_in_experiment", kind: "message", oneof: "filter", T: () => e9 },
             { no: 20, name: "user_premium_type", kind: "message", oneof: "filter", T: () => tt },
@@ -357,7 +357,7 @@ class B extends y.G {
                 case 17:
                     r.filter = {
                         oneofKind: "always",
-                        always: e7.internalBinaryRead(e, e.uint32(), n, r.filter.always),
+                        always: e4.internalBinaryRead(e, e.uint32(), n, r.filter.always),
                     };
                     break;
                 case 18:
@@ -488,7 +488,7 @@ class B extends y.G {
             "clientReleaseChannel" === e.filter.oneofKind &&
                 e3.internalBinaryWrite(e.filter.clientReleaseChannel, t.tag(16, O.O0.LengthDelimited).fork(), n).join(),
             "always" === e.filter.oneofKind &&
-                e7.internalBinaryWrite(e.filter.always, t.tag(17, O.O0.LengthDelimited).fork(), n).join(),
+                e4.internalBinaryWrite(e.filter.always, t.tag(17, O.O0.LengthDelimited).fork(), n).join(),
             "clientSystemLocale" === e.filter.oneofKind &&
                 Z.internalBinaryWrite(e.filter.clientSystemLocale, t.tag(18, O.O0.LengthDelimited).fork(), n).join(),
             "unitIdInExperiment" === e.filter.oneofKind &&
@@ -2204,7 +2204,7 @@ class e6 extends y.G {
     }
 }
 let e5 = new e6();
-class e8 extends y.G {
+class e7 extends y.G {
     constructor() {
         super("discord_protos.discord_experimentation.v1.Always", [{ no: 1, name: "value", kind: "scalar", T: 8 }], {
             "discord_protos.discord_experimentation.v1.filter_category": "FILTER_CATEGORY_UTILITY",
@@ -2240,8 +2240,8 @@ class e8 extends y.G {
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);
     }
 }
-let e7 = new e8();
-class e4 extends y.G {
+let e4 = new e7();
+class e8 extends y.G {
     constructor() {
         super(
             "discord_protos.discord_experimentation.v1.UnitIdInExperiment",
@@ -2297,7 +2297,7 @@ class e4 extends y.G {
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);
     }
 }
-let e9 = new e4();
+let e9 = new e8();
 class te extends y.G {
     constructor() {
         super(
@@ -3740,10 +3740,11 @@ class tJ extends y.G {
                 T: () => ["discord_protos.discord_experimentation.v1.LifecyclePlan.PlanStatus", tP, "PLAN_STATUS_"],
             },
             { no: 2, name: "ramp_steps", kind: "message", repeat: 1, T: () => t3 },
+            { no: 3, name: "id", kind: "scalar", T: 6 },
         ]);
     }
     create(e) {
-        let t = { status: 0, rampSteps: [] };
+        let t = { status: 0, rampSteps: [], id: "0" };
         return (
             globalThis.Object.defineProperty(t, L.$, { enumerable: !1, value: this }),
             void 0 !== e && (0, R.x)(this, t, e),
@@ -3762,6 +3763,9 @@ class tJ extends y.G {
                 case 2:
                     r.rampSteps.push(t3.internalBinaryRead(e, e.uint32(), n));
                     break;
+                case 3:
+                    r.id = e.fixed64().toString();
+                    break;
                 default:
                     let a = n.readUnknownField;
                     if ("throw" === a)
@@ -3776,6 +3780,7 @@ class tJ extends y.G {
         0 !== e.status && t.tag(1, O.O0.Varint).int32(e.status);
         for (let i = 0; i < e.rampSteps.length; i++)
             t3.internalBinaryWrite(e.rampSteps[i], t.tag(2, O.O0.LengthDelimited).fork(), n).join();
+        "0" !== e.id && t.tag(3, O.O0.Bit64).fixed64(e.id);
         let i = n.writeUnknownFields;
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);
     }
@@ -3791,10 +3796,11 @@ class t0 extends y.G {
                 T: () => ["discord_protos.discord_experimentation.v1.LifecyclePlan.PlanStatus", tP, "PLAN_STATUS_"],
             },
             { no: 2, name: "ramp_steps", kind: "message", repeat: 1, T: () => t3 },
+            { no: 3, name: "id", kind: "scalar", T: 6 },
         ]);
     }
     create(e) {
-        let t = { status: 0, rampSteps: [] };
+        let t = { status: 0, rampSteps: [], id: "0" };
         return (
             globalThis.Object.defineProperty(t, L.$, { enumerable: !1, value: this }),
             void 0 !== e && (0, R.x)(this, t, e),
@@ -3813,6 +3819,9 @@ class t0 extends y.G {
                 case 2:
                     r.rampSteps.push(t3.internalBinaryRead(e, e.uint32(), n));
                     break;
+                case 3:
+                    r.id = e.fixed64().toString();
+                    break;
                 default:
                     let a = n.readUnknownField;
                     if ("throw" === a)
@@ -3827,6 +3836,7 @@ class t0 extends y.G {
         0 !== e.status && t.tag(1, O.O0.Varint).int32(e.status);
         for (let i = 0; i < e.rampSteps.length; i++)
             t3.internalBinaryWrite(e.rampSteps[i], t.tag(2, O.O0.LengthDelimited).fork(), n).join();
+        "0" !== e.id && t.tag(3, O.O0.Bit64).fixed64(e.id);
         let i = n.writeUnknownFields;
         return (!1 !== i && (!0 == i ? O.f$.onWrite : i)(this.typeName, e, t), t);
     }
